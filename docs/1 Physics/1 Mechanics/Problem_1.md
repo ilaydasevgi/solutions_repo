@@ -30,31 +30,31 @@ $$
 ## **4. Implementation**
 
 ### **Python Simulation**
-```python
-import numpy as np
-import matplotlib.pyplot as plt
+$$
+\text{import numpy as np} \\
+\text{import matplotlib.pyplot as plt} \\
 
-def projectile_motion(theta, v0, g=9.81):
-    theta_rad = np.radians(theta)
-    R = (v0**2 * np.sin(2 * theta_rad)) / g
-    return R
+\text{def projectile\_motion(\theta, v0, g=9.81):} \\
+\quad \theta_{rad} = \text{np.radians}(\theta) \\
+\quad R = \frac{v_0^2 \sin(2 \theta_{rad})}{g} \\
+\quad \text{return R} \\
 
-def plot_range_vs_angle(v0, g=9.81):
-    angles = np.linspace(0, 90, 100)
-    ranges = [projectile_motion(theta, v0, g) for theta in angles]
-    
-    plt.figure(figsize=(8, 5))
-    plt.plot(angles, ranges, label=f'v0 = {v0} m/s')
-    plt.xlabel('Angle of Projection (degrees)')
-    plt.ylabel('Range (m)')
-    plt.title('Projectile Range vs Angle of Projection')
-    plt.legend()
-    plt.grid()
-    plt.show()
+\text{def plot\_range\_vs\_angle(v0, g=9.81):} \\
+\quad \text{angles} = \text{np.linspace}(0, 90, 100) \\
+\quad \text{ranges} = [\text{projectile\_motion}(\theta, v0, g) \text{ for } \theta \text{ in angles}] \\
 
-# Example usage
-plot_range_vs_angle(v0=20)
-```
+\quad \text{plt.figure(figsize=(8, 5))} \\
+\quad \text{plt.plot(angles, ranges, label=f'v0 = {v0} m/s')} \\
+\quad \text{plt.xlabel('Angle of Projection (degrees)')} \\
+\quad \text{plt.ylabel('Range (m)')} \\
+\quad \text{plt.title('Projectile Range vs Angle of Projection')} \\
+\quad \text{plt.legend()} \\
+\quad \text{plt.grid()} \\
+\quad \text{plt.show()} \\
+
+\text{# Example usage} \\
+\text{plot\_range\_vs\_angle(v0=20)} 
+$$
 
 ### **Graphical Representation**
 This script visualizes the range of a projectile as a function of projection angle.
@@ -63,3 +63,4 @@ This script visualizes the range of a projectile as a function of projection ang
 - **Limitations:** Ignores air resistance, wind, and terrain variations.
 - **Improvements:** Add drag forces, different launch heights, or varying gravitational fields.
 ```
+
