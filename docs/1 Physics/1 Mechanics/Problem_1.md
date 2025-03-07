@@ -5,7 +5,7 @@
 ## **1. Theoretical Foundation**
 Projectile motion follows Newton's laws, with motion governed by:
 
-- Horizontal displacement: $$ x = v_0 \cos(\theta) t $$
+- Horizontal displacement: $$x = v_0 \cos(\theta) t$$
 - Vertical displacement: $$ y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 $$
 
 Solving for time of flight, $$ t_f $$, we get:
