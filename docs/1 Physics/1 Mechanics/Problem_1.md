@@ -3,6 +3,7 @@ Let’s dive into this exploration of projectile motion and investigate how the 
 
 ---
 
+
 # Investigating the Range as a Function of the Angle of Projection
 
 Projectile motion is a classic problem in physics that combines simplicity with profound insights into kinematics. Our goal is to analyze how the horizontal range of a projectile depends on its launch angle, explore the effects of various parameters, and connect the model to real-world scenarios. This document derives the governing equations, analyzes the range, provides a computational simulation, and discusses practical extensions.
