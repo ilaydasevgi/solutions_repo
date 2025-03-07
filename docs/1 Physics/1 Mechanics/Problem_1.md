@@ -1,5 +1,5 @@
 # Problem 1
-```markdown
+
 # **Projectile Motion Analysis**
 
 ## **1. Theoretical Foundation**
@@ -62,6 +62,6 @@ This script visualizes the range of a projectile as a function of projection ang
 ## **5. Limitations and Extensions**
 - **Limitations:** Ignores air resistance, wind, and terrain variations.
 - **Improvements:** Add drag forces, different launch heights, or varying gravitational fields.
-```
+
 
 
