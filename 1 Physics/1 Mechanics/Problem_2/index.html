@@ -50,6 +50,8 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#forced-damped-pendulum-theoretical-and-computational-analysis">Forced Damped Pendulum: Theoretical and Computational Analysis</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +174,90 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h3 id="forced-damped-pendulum-theoretical-and-computational-analysis">Forced Damped Pendulum: Theoretical and Computational Analysis</h3>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<p>The equation governing the motion of a forced damped pendulum is given by:</p>
+<div class="arithmatex">\[ \frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega t) \]</div>
+<p>where:
+- <span class="arithmatex">\(\theta\)</span> is the angular displacement,
+- <span class="arithmatex">\(\gamma\)</span> is the damping coefficient,
+- <span class="arithmatex">\(\omega_0\)</span> is the natural frequency (<span class="arithmatex">\(\omega_0 = \sqrt{g/L}\)</span> for a simple pendulum),
+- <span class="arithmatex">\(A\)</span> is the amplitude of the external driving force,
+- <span class="arithmatex">\(\omega\)</span> is the frequency of the external driving force.</p>
+<p>For small angles (<span class="arithmatex">\(\theta \approx \sin \theta\)</span>), the equation simplifies to a linear differential equation:</p>
+<div class="arithmatex">\[ \frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \theta = A \cos(\omega t) \]</div>
+<p>The general solution consists of a homogeneous part (damped oscillation) and a particular part (forced oscillation). When the driving frequency approaches the natural frequency (<span class="arithmatex">\(\omega \approx \omega_0\)</span>), resonance occurs, leading to large oscillations.</p>
+<h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
+<p>We analyze the system by varying:
+- Damping coefficient (<span class="arithmatex">\(\gamma\)</span>)
+- Driving force amplitude (<span class="arithmatex">\(A\)</span>)
+- Driving frequency (<span class="arithmatex">\(\omega\)</span>)</p>
+<h3 id="numerical-solution-using-python">Numerical Solution Using Python</h3>
+<p>We use the Runge-Kutta method to solve the system numerically and visualize its dynamics.</p>
+<pre><code>
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Define the equations of motion
+def forced_damped_pendulum(t, y, gamma, omega0, A, omega):
+    theta, omega_theta = y
+    dtheta_dt = omega_theta
+    domega_dt = -gamma * omega_theta - omega0**2 * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Parameters
+gamma = 0.5  # Damping coefficient
+omega0 = 1.0  # Natural frequency
+A = 1.2  # Driving force amplitude
+omega = 2.0  # Driving frequency
+
+# Initial conditions
+tspan = [0, 50]  # Time span
+y0 = [0.2, 0]  # Initial angle and angular velocity
+
+# Solve the ODE
+sol = solve_ivp(forced_damped_pendulum, tspan, y0, args=(gamma, omega0, A, omega), t_eval=np.linspace(0, 50, 1000))
+
+# Plot results
+plt.figure(figsize=(10, 5))
+plt.plot(sol.t, sol.y[0], label="Theta (Angle)")
+plt.xlabel("Time")
+plt.ylabel("Theta (rad)")
+plt.title("Forced Damped Pendulum Motion")
+plt.legend()
+plt.grid()
+plt.show()
+</code></pre>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>The forced damped pendulum model is relevant in:
+- <strong>Energy harvesting devices</strong>: Utilizing resonance for energy collection.
+- <strong>Suspension bridges</strong>: Understanding oscillatory instabilities.
+- <strong>Oscillating circuits</strong>: Analogous behavior in RLC circuits.</p>
+<h2 id="4-phase-portrait-and-poincare-section">4. Phase Portrait and Poincaré Section</h2>
+<p>A phase portrait illustrates the evolution of <span class="arithmatex">\((\theta, \omega_\theta)\)</span> over time, revealing transitions to chaos.</p>
+<pre><code>
+
+# Phase portrait
+plt.figure(figsize=(8, 6))
+plt.plot(sol.y[0], sol.y[1], label="Phase Space")
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular Velocity (rad/s)")
+plt.title("Phase Portrait of the Forced Damped Pendulum")
+plt.legend()
+plt.grid()
+plt.show()
+
+
+</code></pre>
+<h2 id="5-conclusion">5. Conclusion</h2>
+<p>We explored the dynamics of a forced damped pendulum through theory and simulation. By varying parameters, we observed transitions from periodic motion to chaos. Future work could include:
+- Introducing nonlinear damping,
+- Exploring non-periodic driving forces.</p>
+<p>This study bridges theoretical physics with engineering applications, demonstrating the richness of nonlinear dynamical systems.</p>
+<h1 id="_1"></h1>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
