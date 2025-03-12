@@ -2,7 +2,8 @@
 Let’s dive into this exploration of projectile motion and investigate how the range depends on the angle of projection. Below is a comprehensive Markdown document that addresses the theoretical foundation, range analysis, practical applications, and includes a Python implementation for simulation and visualization.
 
 ---
-
+ 
+ 
 
 # Investigating the Range as a Function of the Angle of Projection
 
