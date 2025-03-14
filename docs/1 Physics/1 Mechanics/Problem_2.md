@@ -120,7 +120,7 @@ plt.grid()
 plt.show()
 
 ```
-![ Alt Text](unknown.png)
+![ Alt Text][unknown.png]
 ## 5. Conclusion
 We explored the dynamics of a forced damped pendulum through theory and simulation. By varying parameters, we observed transitions from periodic motion to chaos. Future work could include:
 - Introducing nonlinear damping,
@@ -128,3 +128,5 @@ We explored the dynamics of a forced damped pendulum through theory and simulati
 
 This study bridges theoretical physics with engineering applications, demonstrating the richness of nonlinear dynamical systems.
 #
+
+[def]: URL
