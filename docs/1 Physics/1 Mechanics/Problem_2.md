@@ -119,8 +119,6 @@ plt.legend()
 plt.grid()
 plt.show()
 
-/Users/ilayda/Desktop/Unknown.png
-
 ```
 ![ Alt Text](unknown.png)
 ## 5. Conclusion
