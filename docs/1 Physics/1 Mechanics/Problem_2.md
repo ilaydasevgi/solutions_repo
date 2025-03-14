@@ -82,15 +82,43 @@ A phase portrait illustrates the evolution of $(\theta, \omega_\theta)$ over tim
 ```
 
 
-# Phase portrait
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Zorlanmış Sönümlü Sarkacın Diferansiyel Denklemi
+def pendulum(t, state, q, Ω, F):
+    θ, ω = state
+    dθdt = ω
+    dωdt = -q * ω - np.sin(θ) + F * np.cos(Ω * t)
+    return [dθdt, dωdt]
+
+# Parametreler
+q = 0.5      # Sönüm katsayısı
+Ω = 2/3      # Zorlanma frekansı
+F = 1.2      # Zorlanma kuvveti
+
+# Başlangıç koşulları: [θ(0), ω(0)]
+theta_0 = 0.2
+omega_0 = 0.0
+
+# Zaman aralığı
+t_span = (0, 50)  # 0 ile 50 saniye arasında çözümle
+t_eval = np.linspace(t_span[0], t_span[1], 1000)  # 1000 zaman noktası
+
+# Çözümü Bul
+sol = solve_ivp(pendulum, t_span, [theta_0, omega_0], t_eval=t_eval, args=(q, Ω, F))
+
+# Faz Portresi Çizimi
 plt.figure(figsize=(8, 6))
-plt.plot(sol.y[0], sol.y[1], label="Phase Space")
+plt.plot(sol.y[0], sol.y[1], label="Faz Uzayı (θ vs ω)")
 plt.xlabel("Theta (rad)")
-plt.ylabel("Angular Velocity (rad/s)")
-plt.title("Phase Portrait of the Forced Damped Pendulum")
+plt.ylabel("Açısal Hız (rad/s)")
+plt.title("Zorlanmış Sönümlü Sarkacın Faz Portresi")
 plt.legend()
 plt.grid()
 plt.show()
+
 
 
 ```
