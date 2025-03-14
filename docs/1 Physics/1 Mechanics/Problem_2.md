@@ -122,6 +122,9 @@ plt.title("Phase Portrait of the Forced Damped Pendulum")
 plt.legend()
 plt.grid()
 plt.show()
+
+
+```
 ![ Alt Text](unknown.png)
 ## 5. Conclusion
 We explored the dynamics of a forced damped pendulum through theory and simulation. By varying parameters, we observed transitions from periodic motion to chaos. Future work could include:
