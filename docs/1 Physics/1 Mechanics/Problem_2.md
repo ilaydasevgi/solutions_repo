@@ -86,43 +86,43 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
-# Zorlanmış Sönümlü Sarkacın Diferansiyel Denklemi
-def pendulum(t, state, q, Ω, F):
-    θ, ω = state
-    dθdt = ω
-    dωdt = -q * ω - np.sin(θ) + F * np.cos(Ω * t)
-    return [dθdt, dωdt]
+# Differential Equation for the Forced Damped Pendulum
+def pendulum(t, state, damping, driving_freq, driving_force):
+    theta, omega = state
+    dtheta_dt = omega
+    domega_dt = -damping * omega - np.sin(theta) + driving_force * np.cos(driving_freq * t)
+    return [dtheta_dt, domega_dt]
 
-# Parametreler
-q = 0.5      # Sönüm katsayısı
-Ω = 2/3      # Zorlanma frekansı
-F = 1.2      # Zorlanma kuvveti
+# Parameters
+damping = 0.5         # Damping coefficient
+driving_freq = 2/3    # Driving frequency
+driving_force = 1.2   # Driving force
 
-# Başlangıç koşulları: [θ(0), ω(0)]
+# Initial conditions: [theta(0), omega(0)]
 theta_0 = 0.2
 omega_0 = 0.0
 
-# Zaman aralığı
-t_span = (0, 50)  # 0 ile 50 saniye arasında çözümle
-t_eval = np.linspace(t_span[0], t_span[1], 1000)  # 1000 zaman noktası
+# Time span and evaluation points
+time_span = (0, 50)  # Solve from 0 to 50 seconds
+time_eval = np.linspace(time_span[0], time_span[1], 1000)  # 1000 time points
 
-# Çözümü Bul
-sol = solve_ivp(pendulum, t_span, [theta_0, omega_0], t_eval=t_eval, args=(q, Ω, F))
+# Solve the differential equation
+solution = solve_ivp(pendulum, time_span, [theta_0, omega_0], t_eval=time_eval, args=(damping, driving_freq, driving_force))
 
-# Faz Portresi Çizimi
+# Normalize theta values to be within -π to π
+solution.y[0] = np.mod(solution.y[0] + np.pi, 2 * np.pi) - np.pi
+
+# Plot the Phase Portrait
 plt.figure(figsize=(8, 6))
-plt.plot(sol.y[0], sol.y[1], label="Faz Uzayı (θ vs ω)")
+plt.plot(solution.y[0], solution.y[1], label="Phase Space (θ vs ω)")
+plt.scatter(solution.y[0][0], solution.y[1][0], color='red', marker='o', label="Initial Condition")
 plt.xlabel("Theta (rad)")
-plt.ylabel("Açısal Hız (rad/s)")
-plt.title("Zorlanmış Sönümlü Sarkacın Faz Portresi")
+plt.ylabel("Angular Velocity (rad/s)")
+plt.title("Phase Portrait of the Forced Damped Pendulum")
 plt.legend()
 plt.grid()
 plt.show()
-
-
-
-```
-![ Alt Text](image.png)
+![ Alt Text](unknown.png)
 ## 5. Conclusion
 We explored the dynamics of a forced damped pendulum through theory and simulation. By varying parameters, we observed transitions from periodic motion to chaos. Future work could include:
 - Introducing nonlinear damping,
