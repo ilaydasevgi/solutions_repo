@@ -84,7 +84,7 @@ $$
 - **Limits:** At $\theta = 0^\circ$ or $90^\circ$, $\sin(2\theta) = 0$, so $R = 0$.
 
 ### Influence of Parameters
-- **Initial Velocity ($ v_0 $):** $R \propto v_0^2$, a quadratic relationship.
+- **Initial Velocity ($v_0$):** $R \propto v_0^2$, a quadratic relationship.
 - **Gravity ($g$):** $R \propto \frac{1}{g}$, so weaker gravity increases range.
 
 ## 3. Practical Applications
