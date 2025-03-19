@@ -180,17 +180,17 @@
 <h3 id="deriving-the-equations-of-motion">Deriving the Equations of Motion</h3>
 <p>Projectile motion occurs under the influence of gravity, with no horizontal acceleration (assuming no air resistance). We start with Newton’s second law in two dimensions:</p>
 <ul>
-<li><strong>Horizontal (x-direction):</strong> No forces act (ignoring drag), so acceleration $ a_x = 0 $.</li>
-<li><strong>Vertical (y-direction):</strong> Gravity acts downward, so $ a_y = -g $, where $ g $ is the gravitational acceleration (typically $ 9.8 \, \text{m/s}^2 $).</li>
+<li><strong>Horizontal (x-direction):</strong> No forces act (ignoring drag), so acceleration <span class="arithmatex">\(a_x = 0\)</span>.</li>
+<li><strong>Vertical (y-direction):</strong> Gravity acts downward, so <span class="arithmatex">\(a_y = -g\)</span>, where <span class="arithmatex">\(g\)</span> is the gravitational acceleration (typically  <span class="arithmatex">\(9.8 \, \text{m/s}^2\)</span>).</li>
 </ul>
 <p>The initial conditions are:
-- Initial velocity $ v_0 $ at angle $ \theta $ from the horizontal.
-- Initial position at $ (x_0, y_0) $, often taken as $ (0, 0) $ for simplicity.</p>
+- Initial velocity <span class="arithmatex">\(v_0\)</span> at angle  <span class="arithmatex">\(\theta\)</span> from the horizontal.
+- Initial position at <span class="arithmatex">\((x_0, y_0)\)</span>, often taken as <span class="arithmatex">\((0, 0)\)</span> for simplicity.</p>
 <p>The velocity components are:
-- $ v_{0x} = v_0 \cos\theta $
-- $ v_{0y} = v_0 \sin\theta $</p>
+- <span class="arithmatex">\(v_{0x} = v_0 \cos\theta\)</span>
+- <span class="arithmatex">\(v_{0y} = v_0 \sin\theta\)</span></p>
 <h4 id="horizontal-motion">Horizontal Motion</h4>
-<p>Since $ a_x = 0 $:
+<p>Since <span class="arithmatex">\(a_x = 0\)</span>:
 $$
 v_x(t) = v_{0x} = v_0 \cos\theta
 $$
@@ -198,14 +198,14 @@ $$
 x(t) = x_0 + v_{0x} t = v_0 \cos\theta \, t \quad (\text{assuming } x_0 = 0)
 $$</p>
 <h4 id="vertical-motion">Vertical Motion</h4>
-<p>With $ a_y = -g $:
+<p>With <span class="arithmatex">\(a_y = -g\)</span>:
 $$
 v_y(t) = v_{0y} - g t = v_0 \sin\theta - g t
 $$
 $$
 y(t) = y_0 + v_{0y} t - \frac{1}{2} g t^2 = v_0 \sin\theta \, t - \frac{1}{2} g t^2 \quad (\text{assuming } y_0 = 0)
 $$</p>
-<p>These are the parametric equations of motion, forming a parabola in the $ x <span class="arithmatex">\(-\)</span> y $ plane.</p>
+<p>These are the parametric equations of motion, forming a parabola in the <span class="arithmatex">\(x <span class="arithmatex">\(-\)</span> y\)</span> plane.</p>
 <h3 id="time-of-flight">Time of Flight</h3>
 <p>The projectile hits the ground when $ y(t) = 0 $:
 $$
@@ -214,13 +214,13 @@ $$
 $$
 t (v_0 \sin\theta - \frac{1}{2} g t) = 0
 $$
-Solutions: $ t = 0 $ (launch) or:
+Solutions: <span class="arithmatex">\(t = 0\)</span> (launch) or:
 $$
 t = \frac{2 v_0 \sin\theta}{g}
 $$
 This is the time of flight for a projectile launched and landing at the same height.</p>
 <h3 id="family-of-solutions">Family of Solutions</h3>
-<p>The equations depend on parameters $ v_0 $, $ \theta $, and $ g $, yielding a family of trajectories. For example:
+<p>The equations depend on parameters <span class="arithmatex">\(v_0\)</span>, $ \theta $, and $ g $, yielding a family of trajectories. For example:
 - Increasing $ v_0 $ stretches the parabola.
 - Changing $ \theta $ alters the shape and range.
 - Varying $ g $ (e.g., on another planet) scales the time and distance.</p>
