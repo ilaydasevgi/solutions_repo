@@ -10,10 +10,14 @@ By analyzing this relationship, we can:
 - Analyze real-world examples such as the Moon’s orbit around Earth.
 - Implement a computational model to simulate circular orbits and verify Kepler’s Third Law.
 
+[alt text](%20Unknown.png)
+
 ## **Kepler’s Third Law Derivation**
 Kepler's Third Law states that for a planet orbiting a much more massive body, the square of the orbital period ($$T$$) is proportional to the cube of the semi-major axis ($$r$$):
 
 $$T^2 \propto r^3$$
+[alt text](%20111.png)
+
 
 ### **Mathematical Derivation**
 From Newton's Law of Universal Gravitation:
@@ -84,11 +88,12 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-
+[alt text](%10333.png)
 ## **Discussion on Elliptical Orbits**
 - Kepler’s Third Law extends to elliptical orbits, where $$r$$ is replaced by the semi-major axis.
 - For binary systems, the sum of both masses is considered in the equation.
 - The law helps analyze orbits of exoplanets, stars, and galaxies.
+[alt text](%30555.png)
 
 ## **Conclusion**
 Kepler’s Third Law provides a crucial link between gravity and orbital mechanics. Our Python simulation confirms its validity, and its applications in astronomy are vast, from predicting satellite movements to discovering exoplanets.
