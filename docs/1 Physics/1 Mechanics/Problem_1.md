@@ -15,19 +15,19 @@ Projectile motion is a classic problem in physics that combines simplicity with 
 
 Projectile motion occurs under the influence of gravity, with no horizontal acceleration (assuming no air resistance). We start with Newton’s second law in two dimensions:
 
-- **Horizontal (x-direction):** No forces act (ignoring drag), so acceleration $ a_x = 0 $.
-- **Vertical (y-direction):** Gravity acts downward, so $ a_y = -g $, where $ g $ is the gravitational acceleration (typically $ 9.8 \, \text{m/s}^2 $).
+- **Horizontal (x-direction):** No forces act (ignoring drag), so acceleration $a_x = 0$.
+- **Vertical (y-direction):** Gravity acts downward, so $a_y = -g$, where $g$ is the gravitational acceleration (typically  $9.8 \, \text{m/s}^2$).
 
 The initial conditions are:
-- Initial velocity $ v_0 $ at angle $ \theta $ from the horizontal.
-- Initial position at $ (x_0, y_0) $, often taken as $ (0, 0) $ for simplicity.
+- Initial velocity $v_0$ at angle  $\theta$ from the horizontal.
+- Initial position at $(x_0, y_0)$, often taken as $(0, 0)$ for simplicity.
 
 The velocity components are:
-- $ v_{0x} = v_0 \cos\theta $
-- $ v_{0y} = v_0 \sin\theta $
+- $v_{0x} = v_0 \cos\theta$
+- $v_{0y} = v_0 \sin\theta$
 
 #### Horizontal Motion
-Since $ a_x = 0 $:
+Since $a_x = 0$:
 $$
 v_x(t) = v_{0x} = v_0 \cos\theta
 $$
@@ -36,7 +36,7 @@ x(t) = x_0 + v_{0x} t = v_0 \cos\theta \, t \quad (\text{assuming } x_0 = 0)
 $$
 
 #### Vertical Motion
-With $ a_y = -g $:
+With $a_y = -g$:
 $$
 v_y(t) = v_{0y} - g t = v_0 \sin\theta - g t
 $$
@@ -44,7 +44,7 @@ $$
 y(t) = y_0 + v_{0y} t - \frac{1}{2} g t^2 = v_0 \sin\theta \, t - \frac{1}{2} g t^2 \quad (\text{assuming } y_0 = 0)
 $$
 
-These are the parametric equations of motion, forming a parabola in the $ x $-$ y $ plane.
+These are the parametric equations of motion, forming a parabola in the $x $-$ y$ plane.
 
 ### Time of Flight
 The projectile hits the ground when $ y(t) = 0 $:
@@ -54,14 +54,14 @@ $$
 $$
 t (v_0 \sin\theta - \frac{1}{2} g t) = 0
 $$
-Solutions: $ t = 0 $ (launch) or:
+Solutions: $t = 0$ (launch) or:
 $$
 t = \frac{2 v_0 \sin\theta}{g}
 $$
 This is the time of flight for a projectile launched and landing at the same height.
 
 ### Family of Solutions
-The equations depend on parameters $ v_0 $, $ \theta $, and $ g $, yielding a family of trajectories. For example:
+The equations depend on parameters $v_0$, $ \theta $, and $ g $, yielding a family of trajectories. For example:
 - Increasing $ v_0 $ stretches the parabola.
 - Changing $ \theta $ alters the shape and range.
 - Varying $ g $ (e.g., on another planet) scales the time and distance.
