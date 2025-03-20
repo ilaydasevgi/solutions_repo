@@ -130,7 +130,7 @@ plt.grid(True)
 plt.legend()
 plt.show()
 ```
-![alt text](image-5.png)
+![alt text](homework 12.png)
 ### **4. Implementation: Python Visualization**
 We implement a computational tool to visualize the range as a function of the angle.
 
@@ -222,7 +222,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-![alt text](image-6.png)
+![alt text](homework 11.png)
 
  ## Projectile Motion with and Without Air Resistance (with Bouncing)
 
