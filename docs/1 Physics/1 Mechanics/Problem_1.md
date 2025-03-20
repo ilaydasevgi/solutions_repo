@@ -1,166 +1,349 @@
 # Problem 1
-Let’s dive into this exploration of projectile motion and investigate how the range depends on the angle of projection. Below is a comprehensive Markdown document that addresses the theoretical foundation, range analysis, practical applications, and includes a Python implementation for simulation and visualization.
+
+# **Investigating the Range as a Function of the Angle of Projection**
+
+## **1. Motivation**
+Projectile motion, while seemingly simple, provides a rich foundation for understanding fundamental physics principles. The problem is straightforward: analyze how the range of a projectile depends on its angle of projection. However, beneath this simplicity lies a complex framework involving both linear and quadratic relationships.
+
+This topic is particularly compelling due to the number of free parameters involved, such as:
+
+- **Initial velocity** $v_0$
+
+- **Gravitational acceleration** $g$
+
+- **Launch height** $h$
+
+
+These parameters give rise to a diverse set of solutions that describe real-world phenomena, from the arc of a soccer ball to the trajectory of a rocket.
 
 ---
- 
- 
 
-# Investigating the Range as a Function of the Angle of Projection
+## **2. Theoretical Foundation**
+To analyze projectile motion, we derive the governing equations from fundamental principles, primarily Newton's second law of motion.
 
-Projectile motion is a classic problem in physics that combines simplicity with profound insights into kinematics. Our goal is to analyze how the horizontal range of a projectile depends on its launch angle, explore the effects of various parameters, and connect the model to real-world scenarios. This document derives the governing equations, analyzes the range, provides a computational simulation, and discusses practical extensions.
+### **2.1. Equations of Motion**
+Projectile motion is governed by Newton’s Second Law:
 
-## 1. Theoretical Foundation
+$F = m \cdot a$
 
-### Deriving the Equations of Motion
+For a projectile, forces acting on the object include:
+1. **Gravity** ($mg$) in the vertical direction.
+2. **No horizontal forces** (ignoring air resistance initially).
 
-Projectile motion occurs under the influence of gravity, with no horizontal acceleration (assuming no air resistance). We start with Newton’s second law in two dimensions:
+Thus, the acceleration components are:
 
-- **Horizontal (x-direction):** No forces act (ignoring drag), so acceleration $a_x = 0$.
-- **Vertical (y-direction):** Gravity acts downward, so $a_y = -g$, where $g$ is the gravitational acceleration (typically  $9.8 \, \text{m/s}^2$).
+$a_x = 0, \quad a_y = -g$
 
-The initial conditions are:
-- Initial velocity $v_0$ at angle  $\theta$ from the horizontal.
-- Initial position at $(x_0, y_0)$, often taken as $(0, 0)$ for simplicity.
+Integrating these equations, we obtain the velocity components:
 
-The velocity components are:
-- $v_{0x} = v_0 \cos\theta$
-- $v_{0y} = v_0 \sin\theta$
+$v_x = v_0 \cos(\theta), \quad v_y = v_0 \sin(\theta) - g t$
 
-#### Horizontal Motion
-Since $a_x = 0$:
-$$
-v_x(t) = v_{0x} = v_0 \cos\theta
-$$
-$$
-x(t) = x_0 + v_{0x} t = v_0 \cos\theta \, t \quad (\text{assuming } x_0 = 0)
-$$
+Further integration gives the position equations:
 
-#### Vertical Motion
-With $a_y = -g$:
-$$
-v_y(t) = v_{0y} - g t = v_0 \sin\theta - g t
-$$
-$$
-y(t) = y_0 + v_{0y} t - \frac{1}{2} g t^2 = v_0 \sin\theta \, t - \frac{1}{2} g t^2 \quad (\text{assuming } y_0 = 0)
-$$
+$x(t) = v_0 \cos(\theta) \cdot t$
 
-These are the parametric equations of motion, forming a parabola in the $x $-$ y$ plane.
+$y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2$
 
-### Time of Flight
-The projectile hits the ground when $y(t) = 0$:
-$$
-v_0 \sin\theta \, t - \frac{1}{2} g t^2 = 0
-$$
-$$
-t (v_0 \sin\theta - \frac{1}{2} g t) = 0
-$$
-Solutions: $t = 0$ (launch) or:
-$$
-t = \frac{2 v_0 \sin\theta}{g}
-$$
-This is the time of flight for a projectile launched and landing at the same height.
+The horizontal and vertical motion of a projectile are governed by kinematic equations:
 
-### Family of Solutions
-The equations depend on parameters $v_0$, $\theta$, and $g$, yielding a family of trajectories. For example:
-- Increasing $v_0$ stretches the parabola.
-- Changing $\theta$ alters the shape and range.
-- Varying $g$ (e.g., on another planet) scales the time and distance.
+- **Horizontal motion (constant velocity):**
 
-## 2. Analysis of the Range
+$$x(t) = v_0 \cos(\theta) t$$
 
-### Range Equation
-The horizontal range $R$ is the distance traveled when $t = \frac{2 v_0 \sin\theta}{g}$:
-$$
-R = v_{0x} \cdot t = (v_0 \cos\theta) \cdot \frac{2 v_0 \sin\theta}{g}
-$$
-Using the identity $\sin(2\theta) = 2 \sin\theta \cos\theta$:
-$$
-R = \frac{v_0^2 \sin(2\theta)}{g}
-$$
+- **Vertical motion (accelerated motion due to gravity):**
 
-### Dependence on Angle
-- **Maximum Range:** $R$ is maximized when $\sin(2\theta) = 1$, i.e., $2\theta = 90^\circ$, so $\theta = 45^\circ$. Here, $R_{\text{max}} = \frac{v_0^2}{g}$.
-- **Symmetry:** $R(\theta) = R(90^\circ - \theta)$, e.g., $\theta = 30^\circ$ and $60^\circ$ yield the same range.
-- **Limits:** At $\theta = 0^\circ$ or $90^\circ$, $\sin(2\theta) = 0$, so $R = 0$.
+$$y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2$$
 
-### Influence of Parameters
-- **Initial Velocity ($v_0$):** $R \propto v_0^2$, a quadratic relationship.
-- **Gravity ($g$):** $R \propto \frac{1}{g}$, so weaker gravity increases range.
 
-## 3. Practical Applications
+where:
 
-### Real-World Scenarios
-- **Sports:** A soccer ball’s trajectory depends on kick angle and speed, with $\theta \approx 45^\circ$ optimizing distance.
-- **Engineering:** Artillery or rocket launches adjust $\theta$ and $v_0$ for target distance.
-- **Astrophysics:** Trajectories on the Moon ($g \approx 1.62 \, \text{m/s}^2$) are farther than on Earth.
+- $x(t)$ and $y(t)$ are the projectile's position at time $t$.
+- $v_0$ is the initial velocity.
+-  $\theta$ is the launch angle.
+- $g$ is the gravitational acceleration (typically 9.81 m/s² on Earth).
 
-### Extensions
-- **Uneven Terrain:** If launched from height $h$, the range equation becomes more complex, involving a quadratic in time.
-- **Air Resistance:** Adds a drag force proportional to velocity, requiring numerical solutions.
 
-## 4. Implementation
+These fundamental equations describe projectile motion and will now be used to analyze range and time of flight.
 
-Below is a Python script to simulate and visualize the range versus angle.
+---
 
+### **2.2. Time of Flight**
+The total time the projectile spends in the air can be determined by setting $y(t) = 0$:
+
+$t_f = \frac{2 v_0 \sin(\theta)}{g}$
+
+### **2.3. Range Equation**
+The range $R$ is the total horizontal distance traveled before the projectile lands.
+Using $t_f$ in the horizontal motion equation:
+
+$R = v_0 \cos(\theta) \cdot \frac{2 v_0 \sin(\theta)}{g}$
+
+Using the trigonometric identity $2\sin(\theta) \cos(\theta) = \sin(2\theta)$, we obtain:
+
+$R(\theta) = \frac{v_0^2}{g} \sin(2\theta)$
+
+### **2.4. Maximum Range**
+The maximum range occurs when $\sin(2\theta)$ is maximized, which happens at $\theta = 45^\circ$:
+
+$R_{max} = \frac{v_0^2}{g}$
+
+---
+
+## **3. Analysis of the Range**
+
+### **3.1. Dependence on Angle**
+- The range follows a **symmetrical** pattern around $\theta = 45^\circ$.
+- Angles $\theta$ and $90^\circ - \theta$ result in the same range.
+
+### **3.2. Effect of Initial Velocity**
+- Higher $v_0$ leads to a longer range, proportional to $v_0^2$.
+
+### **3.3. Effect of Gravity**
+- A larger $g$ (such as on Jupiter) reduces range, while a smaller $g$ (such as on the Moon) increases it.
+
+
+#### **📌 Improved Range Plot with Annotations**
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parameters
-v0 = 20.0  # initial velocity (m/s)
-g = 9.8    # gravitational acceleration (m/s^2)
-angles = np.linspace(0, 90, 91)  # angles from 0 to 90 degrees
+# Define parameters
+v0 = 20  # Initial velocity (m/s)
+g = 9.81  # Gravity (m/s^2)
+theta = np.linspace(0, 90, 100)  # Angle range from 0 to 90 degrees
 
-# Range function
-def range_projectile(v0, theta_deg, g):
-    theta = np.radians(theta_deg)
-    return (v0**2 * np.sin(2 * theta)) / g
+# Compute range
+R = (v0**2 * np.sin(np.deg2rad(2 * theta))) / g
 
-# Compute ranges
-ranges = range_projectile(v0, angles, g)
-
-# Plot
+# Plot the range vs. angle
 plt.figure(figsize=(10, 6))
-plt.plot(angles, ranges, label=f'v0 = {v0} m/s, g = {g} m/s²')
-plt.xlabel('Launch Angle (degrees)')
-plt.ylabel('Range (meters)')
-plt.title('Range vs. Angle of Projection')
-plt.grid(True)
-plt.legend()
-plt.show()
+plt.plot(theta, R, label='Range (R)', color='blue')
 
-# Test different v0 and g
-v0_values = [10, 20, 30]
-g_values = [9.8, 1.62]  # Earth and Moon
-plt.figure(figsize=(10, 6))
-for v0 in v0_values:
-    for g in g_values:
-        ranges = range_projectile(v0, angles, g)
-        plt.plot(angles, ranges, label=f'v0 = {v0} m/s, g = {g} m/s²')
-plt.xlabel('Launch Angle (degrees)')
-plt.ylabel('Range (meters)')
-plt.title('Range vs. Angle for Different Parameters')
+# Mark the maximum range at 45°
+plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
+plt.text(46, max(R)-2, "Maximum Range", color='red')
+
+plt.xlabel('Projection Angle (θ) [Degrees]')
+plt.ylabel('Range (R) [m]')
+plt.title('Projectile Range as a Function of Launch Angle')
 plt.grid(True)
 plt.legend()
 plt.show()
 ```
+![alt text](image-5.png)
+### **4. Implementation: Python Visualization**
+We implement a computational tool to visualize the range as a function of the angle.
 
-### Output
-- The first plot shows $R$ vs. $\theta$ for $v_0 = 20 \, \text{m/s}$, $g = 9.8 \, \text{m/s}^2$, peaking at $\theta = 45^\circ$.
-- The second plot compares different $v_0$ and $g$, illustrating their effects.
 
-## Discussion
+## 🚀 Projectile Motion Simulation
 
-### Limitations
-- **Idealization:** Assumes no air resistance, flat ground, and constant $g$.
-- **Range Formula:** Only applies when launch and landing heights are equal.
+This simulation demonstrates the **parabolic trajectory of a projectile** launched at a given angle and velocity.  
+Users can **adjust the launch angle and initial speed**, allowing them to observe how different conditions affect projectile motion.
 
-### Enhancements
-- **Drag:** Incorporate $F_d = -k v$ and solve numerically.
-- **Wind:** Add a velocity term to the equations.
-- **Height:** Adjust for $y_0 \neq 0$, solving a quadratic for time of flight.
+### 📌 **How It Works?**
+- The user selects a **launch angle (0° - 90°) and initial velocity (5 - 50 m/s)**.
+- Pressing the **"Start Simulation"** button runs the animation based on the selected values.
+- A **moving particle (blue dot) follows a curved trajectory due to gravity**.
+- The **graph dynamically updates** to show the horizontal and vertical motion.
 
-This analysis and simulation highlight the elegance of projectile motion while revealing its adaptability to complex scenarios.
+### 🖥 **Use Cases**
+✅ **Understanding projectile motion in physics courses.**  
+✅ **Basic modeling for engineering and ballistic calculations.**  
+✅ **Trajectory analysis for real-world problems.**  
+
+🔗 **Run the Simulation on Google Colab:**  
+[Link text](https://colab.research.google.com/drive/1U-gdNsOIBkSQR3tMoc0KqLe4vPOr5lib?usp=sharing
+)
+---
+
+## **5. Air Resistance & Improved Models**
+In reality, projectiles experience **air resistance** proportional to velocity:
+
+$F_{drag} = - k v^2$
+
+The equations of motion now become:
+
+$a_x = -\frac{k}{m} v_x, \quad a_y = -g - \frac{k}{m} v_y$
+
+### **📌 Visualization with Air Resistance**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+ 
+# Projectile parameters
+v0 = 50  # Initial velocity (m/s)
+angle = 45  # Launch angle (degrees)
+g = 9.81  # Gravitational acceleration (m/s^2)
+mass = 0.5  # Mass of the object (kg)
+drag_coefficient = 0.1  # Air resistance coefficient (kg/m)
+ 
+# Helper functions
+def trajectory_no_air_resistance(v0, angle, g, t):
+    angle_rad = np.radians(angle)
+    x = v0 * np.cos(angle_rad) * t
+    y = v0 * np.sin(angle_rad) * t - 0.5 * g * t**2
+    return x, y
+ 
+def trajectory_with_air_resistance(v0, angle, g, mass, drag_coefficient, dt=0.01):
+    angle_rad = np.radians(angle)
+    vx = v0 * np.cos(angle_rad)
+    vy = v0 * np.sin(angle_rad)
+    x, y = 0, 0
+    x_positions, y_positions = [x], [y]
+ 
+    while y >= 0:
+        ax = -drag_coefficient * vx / mass
+        ay = -g - (drag_coefficient * vy / mass)
+        vx += ax * dt
+        vy += ay * dt
+        x += vx * dt
+        y += vy * dt
+        x_positions.append(x)
+        y_positions.append(y)
+ 
+    return x_positions, y_positions
+ 
+# Simulation time for the case without air resistance
+t_max = 2 * v0 * np.sin(np.radians(angle)) / g
+t = np.linspace(0, t_max, num=500)
+ 
+# Calculations
+x_no_air, y_no_air = trajectory_no_air_resistance(v0, angle, g, t)
+x_with_air, y_with_air = trajectory_with_air_resistance(v0, angle, g, mass, drag_coefficient)
+ 
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(x_no_air, y_no_air, label="Without air resistance", linestyle="--")
+plt.plot(x_with_air, y_with_air, label="With air resistance", linestyle="-")
+plt.title("Projectile motion: comparison with and without air resistance")
+plt.xlabel("Distance (m)")
+plt.ylabel("Height (m)")
+plt.legend()
+plt.grid()
+plt.show()
+```
+![alt text](image-6.png)
+
+ ## Projectile Motion with and Without Air Resistance (with Bouncing)
+
+### 1️⃣ What Does This Code Do?
+
+This Python script simulates and visualizes projectile motion with and without air resistance, including bounces off the ground. The animation shows how air resistance affects the motion of a projectile compared to the idealized case with no drag.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+ 
+# Parameters
+m = 1.0  # Mass [kg]
+g = 9.81  # Gravitational acceleration [m/s^2]
+k = 0.1  # Air resistance coefficient [kg/s]
+v0 = 20  # Initial velocity [m/s]
+theta = np.radians(45)  # Initial angle [degrees -> radians]
+dt = 0.02  # Time step [s]
+T = 5  # Simulation time [s]
+elasticity = 0.7  # Coefficient of restitution
+ 
+# Function to calculate trajectory without air resistance
+def trajectory_no_drag(v0, theta, g, dt, T, elasticity):
+    x, y = [0], [0]
+    vx, vy = v0 * np.cos(theta), v0 * np.sin(theta)
+    t = 0
+    while t < T:
+        x.append(x[-1] + vx * dt)
+        y_new = y[-1] + vy * dt - 0.5 * g * dt**2
+        vy -= g * dt
+        if y_new < 0:  # Bounce off the ground
+            vy = -vy * elasticity
+            y_new = 0
+        y.append(y_new)
+        t += dt
+    return x, y
+ 
+# Function to calculate trajectory with air resistance
+def trajectory_with_drag(v0, theta, g, k, m, dt, T, elasticity):
+    vx, vy = v0 * np.cos(theta), v0 * np.sin(theta)
+    x, y = [0], [0]
+    t = 0
+    while t < T:
+        ax = - (k / m) * vx
+        ay = -g - (k / m) * vy
+        vx += ax * dt
+        vy += ay * dt
+        x.append(x[-1] + vx * dt)
+        y_new = y[-1] + vy * dt
+        if y_new < 0:  # Bounce off the ground
+            vy = -vy * elasticity
+            y_new = 0
+        y.append(y_new)
+        t += dt
+    return x, y
+ 
+# Compute trajectories
+x_no_drag, y_no_drag = trajectory_no_drag(v0, theta, g, dt, T, elasticity)
+x_drag, y_drag = trajectory_with_drag(v0, theta, g, k, m, dt, T, elasticity)
+ 
+# Initialize animation
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.set_xlim(0, max(max(x_no_drag), max(x_drag)))
+ax.set_ylim(0, max(max(y_no_drag), max(y_drag)))
+ax.set_xlabel("Distance [m]")
+ax.set_ylabel("Height [m]")
+ax.set_title("Projectile motion with and without air resistance (with bounces)")
+ax.grid()
+ 
+point_no_drag, = ax.plot([], [], 'bo', label="Without air resistance")
+point_drag, = ax.plot([], [], 'ro', label="With air resistance")
+traj_no_drag, = ax.plot([], [], 'b--', alpha=0.5)
+traj_drag, = ax.plot([], [], 'r--', alpha=0.5)
+ax.legend()
+ 
+# Initialization function
+def init():
+    point_no_drag.set_data([], [])
+    point_drag.set_data([], [])
+    traj_no_drag.set_data([], [])
+    traj_drag.set_data([], [])
+    return point_no_drag, point_drag, traj_no_drag, traj_drag
+ 
+# Function to update the animation
+def update(frame):
+    if frame < len(x_no_drag):
+        point_no_drag.set_data([x_no_drag[frame]], [y_no_drag[frame]])
+        traj_no_drag.set_data(x_no_drag[:frame+1], y_no_drag[:frame+1])
+ 
+    if frame < len(x_drag):
+        point_drag.set_data([x_drag[frame]], [y_drag[frame]])
+        traj_drag.set_data(x_drag[:frame+1], y_drag[:frame+1])
+ 
+    return point_no_drag, point_drag, traj_no_drag, traj_drag
+ 
+# Create animation
+frames = max(len(x_no_drag), len(x_drag))
+ani = FuncAnimation(fig, update, frames=frames, init_func=init, blit=False, interval=20)
+ 
+# Display animation in Colab
+plt.close()
+HTML(ani.to_html5_video())
+```
+### Link To The Simulation Above On Google Colab
+https://colab.research.google.com/drive/1JAPKrMDEgJBFYaxuZgfnd50JqxAKGi-t?usp=sharing
+
+
 
 ---
 
+## **7. Conclusion**
+- The range equation follows a clear mathematical pattern.
+- Maximum range occurs at **45°**, confirmed analytically and numerically.
+- **Including air resistance shows a significant reduction in range**.
+- This study has applications in sports, engineering, and physics simulations.
+
+---
+
+## **8. References & Further Reading**
+- Resnick, R., & Halliday, D. (2004). *Fundamentals of Physics*.
+- MIT OpenCourseWare: Classical Mechanics Lectures.
+- NASA’s trajectory analysis for spacecraft launches.
