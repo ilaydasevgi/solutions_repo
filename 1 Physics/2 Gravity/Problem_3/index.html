@@ -172,6 +172,133 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h1 id="problem-3-trajectories-of-a-freely-released-payload-near-earth">🚀 Problem 3: Trajectories of a Freely Released Payload Near Earth</h1>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth">🚀 Trajectories of a Freely Released Payload Near Earth</h1>
+<p>Before diving into theory, explore how real spacecraft move using NASA’s official 3D simulation platform:</p>
+<p>🌐 <a href="https://eyes.nasa.gov/">NASA Eyes on the Solar System</a></p>
+<blockquote>
+<p>Real-time orbits, mission tracking, and gravity interactions!</p>
+</blockquote>
+<hr/>
+<h2 id="motivation">🎯 Motivation</h2>
+<p>...</p>
+<h2 id="motivation_1">🎯 Motivation</h2>
+<p>When a payload is released from a moving rocket near Earth, it may follow various trajectories depending on its initial velocity and position. This problem blends orbital mechanics and numerical simulations — essential for tasks like satellite deployment, reentry, and interplanetary missions.</p>
+<hr/>
+<h2 id="governing-physics">🌍 Governing Physics</h2>
+<p>To better understand gravitational attraction and orbital motion, you can explore this interactive simulation:</p>
+<p>🌐 <a href="https://phet.colorado.edu/en/simulation/gravity-and-orbits">PhET: Gravity and Orbits</a></p>
+<blockquote>
+<p>Visualize how mass, distance, and velocity affect planetary orbits and satellite motion in real time!</p>
+</blockquote>
+<h3 id="newtons-law-of-gravitation">Newton's Law of Gravitation</h3>
+<p>The gravitational force on the payload is:</p>
+<div class="arithmatex">\[
+\vec{F} = - \frac{GMm}{r^2} \hat{r}
+\]</div>
+<ul>
+<li><span class="arithmatex">\( G = 6.674 \times 10^{-11} \, \text{m}^3/\text{kg s}^2 \)</span></li>
+<li><span class="arithmatex">\( M = 5.972 \times 10^{24} \, \text{kg} \)</span> (Earth's mass)</li>
+<li><span class="arithmatex">\( m \)</span>: Payload mass (cancels out in acceleration)</li>
+<li><span class="arithmatex">\( r \)</span>: Distance from Earth's center</li>
+</ul>
+<p>Using Newton's Second Law:</p>
+<div class="arithmatex">\[
+\vec{a} = \frac{\vec{F}}{m} = - \frac{GM}{r^2} \hat{r}
+\]</div>
+<hr/>
+<h2 id="orbital-energy-and-trajectories">🌌 Orbital Energy and Trajectories</h2>
+<p>Total specific mechanical energy of the payload:</p>
+<div class="arithmatex">\[
+\epsilon = \frac{v^2}{2} - \frac{GM}{r}
+\]</div>
+<ul>
+<li><span class="arithmatex">\( \epsilon &lt; 0 \)</span>: Elliptical orbit (bound)</li>
+<li><span class="arithmatex">\( \epsilon = 0 \)</span>: Parabolic trajectory (escape)</li>
+<li><span class="arithmatex">\( \epsilon &gt; 0 \)</span>: Hyperbolic trajectory (escape)</li>
+</ul>
+<p>Escape velocity at distance <span class="arithmatex">\( r \)</span>:</p>
+<div class="arithmatex">\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]</div>
+<p>Escape velocity decreases with altitude since gravitational pull weakens. It is given by:</p>
+<div class="arithmatex">\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]</div>
+<p>Below is a plot showing how escape velocity changes with altitude:</p>
+<p><img alt=" Alt Text" src="../888.png"/></p>
+<h2 id="numerical-simulation-euler-method">🧮 Numerical Simulation (Euler Method)</h2>
+<p>We simulate the payload motion using small time steps.</p>
+<h3 id="assumptions">Assumptions:</h3>
+<ul>
+<li>2D motion (x, y)</li>
+<li>Only gravitational force from Earth</li>
+<li>Earth is a point mass at the origin</li>
+</ul>
+<hr/>
+<h2 id="python-implementation">📦 Python Implementation</h2>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="constants">Constants</h1>
+<p>G = 6.67430e-11        # gravitational constant [m^3/kg/s^2]
+M = 5.972e24           # Earth mass [kg]
+R_earth = 6.371e6      # Earth radius [m]</p>
+<h1 id="initial-conditions">Initial conditions</h1>
+<p>altitude = 300e3                   # 300 km altitude
+r0 = R_earth + altitude
+v0 = 7500                          # initial speed [m/s] (tune this)
+theta = np.radians(0)             # angle w.r.t. horizontal</p>
+<h1 id="position-and-velocity-vectors">Position and velocity vectors</h1>
+<p>x = [r0]
+y = [0]
+vx = [0]
+vy = [v0]</p>
+<h1 id="time-settings">Time settings</h1>
+<p>dt = 1                             # time step [s]
+t_max = 8000
+N = int(t_max / dt)</p>
+<h1 id="simulation-loop">Simulation loop</h1>
+<p>for i in range(N):
+    r = np.sqrt(x[-1]<strong>2 + y[-1]</strong>2)
+    ax = -G * M * x[-1] / r<strong>3
+    ay = -G * M * y[-1] / r</strong>3</p>
+<pre><code>vx_new = vx[-1] + ax * dt
+vy_new = vy[-1] + ay * dt
+
+x_new = x[-1] + vx_new * dt
+y_new = y[-1] + vy_new * dt
+
+# Stop if it hits Earth
+if np.sqrt(x_new**2 + y_new**2) &lt;= R_earth:
+    break
+
+vx.append(vx_new)
+vy.append(vy_new)
+x.append(x_new)
+y.append(y_new)
+</code></pre>
+<h1 id="plotting">Plotting</h1>
+<p>plt.figure(figsize=(8,8))
+earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth')
+plt.gca().add_patch(earth)</p>
+<p>plt.plot(x, y, label='Payload Trajectory')
+plt.xlabel('x [m]')
+plt.ylabel('y [m]')
+plt.title('Payload Trajectory Near Earth')
+plt.axis('equal')
+plt.grid(True)
+plt.legend()
+plt.show()</p>
+<hr/>
+<h2 id="explore-further-beyond-earth">🔍 Explore Further: Beyond Earth</h2>
+<p>While this project focuses on payloads near Earth, it's also valuable to understand more complex gravitational dynamics.</p>
+<p>🎥 <strong>SkyMarvels™ – Solar System Barycenter</strong><br/>
+How the Sun moves due to gravitational pulls from the planets — visualized with Celestia.</p>
+<p><a href="https://www.youtube.com/watch?v=1iSR3Yw6FXo"><img alt="Solar System Barycenter" src="https://img.youtube.com/vi/1iSR3Yw6FXo/0.jpg"/></a></p>
+<blockquote>
+<p>Barycenters explain why the Sun itself moves slightly — important for understanding motion in multi-body systems.</p>
+</blockquote>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
