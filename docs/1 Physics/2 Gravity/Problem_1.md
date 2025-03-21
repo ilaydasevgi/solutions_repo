@@ -103,7 +103,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-
+![ Alt Text](kepler_third_law.png)
 ---
 
 ## **4. Extension to Elliptical Orbits**
@@ -118,6 +118,8 @@ This generalization allows for:
 - Determining **galactic dynamics**
 
 ---
+
+![ Alt Text](circular_orbit.png)
 
 ## **Conclusion**
 - **Kepler's Third Law** provides a direct link between orbital periods and radii.
