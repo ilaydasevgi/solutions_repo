@@ -173,16 +173,15 @@
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
 <h1 id="problem-3-trajectories-of-a-freely-released-payload-near-earth">🚀 Problem 3: Trajectories of a Freely Released Payload Near Earth</h1>
-<h1 id="trajectories-of-a-freely-released-payload-near-earth">🚀 Trajectories of a Freely Released Payload Near Earth</h1>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h1>
 <p>Before diving into theory, explore how real spacecraft move using NASA’s official 3D simulation platform:</p>
 <p>🌐 <a href="https://eyes.nasa.gov/">NASA Eyes on the Solar System</a></p>
 <blockquote>
 <p>Real-time orbits, mission tracking, and gravity interactions!</p>
 </blockquote>
 <hr/>
-<h2 id="motivation">🎯 Motivation</h2>
 <p>...</p>
-<h2 id="motivation_1">🎯 Motivation</h2>
+<h2 id="motivation">🎯 Motivation</h2>
 <p>When a payload is released from a moving rocket near Earth, it may follow various trajectories depending on its initial velocity and position. This problem blends orbital mechanics and numerical simulations — essential for tasks like satellite deployment, reentry, and interplanetary missions.</p>
 <hr/>
 <h2 id="governing-physics">🌍 Governing Physics</h2>
@@ -237,48 +236,62 @@ v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
 </ul>
 <hr/>
 <h2 id="python-implementation">📦 Python Implementation</h2>
-<p>```python
-import numpy as np
+<p>import numpy as np
 import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>G = 6.67430e-11        # gravitational constant [m^3/kg/s^2]
-M = 5.972e24           # Earth mass [kg]
-R_earth = 6.371e6      # Earth radius [m]</p>
-<h1 id="initial-conditions">Initial conditions</h1>
-<p>altitude = 300e3                   # 300 km altitude
-r0 = R_earth + altitude
-v0 = 7500                          # initial speed [m/s] (tune this)
-theta = np.radians(0)             # angle w.r.t. horizontal</p>
-<h1 id="position-and-velocity-vectors">Position and velocity vectors</h1>
+<h1 id="-">-------------------------------</h1>
+<h1 id="physical-constants">🌍 Physical Constants</h1>
+<h1 id="-_1">-------------------------------</h1>
+<p>G = 6.67430e-11        # Universal gravitational constant [m^3/kg/s^2]
+M = 5.972e24           # Mass of Earth [kg]
+R_earth = 6.371e6      # Radius of Earth [m]</p>
+<h1 id="-_2">-------------------------------</h1>
+<h1 id="initial-conditions">🚀 Initial Conditions</h1>
+<h1 id="-_3">-------------------------------</h1>
+<p>altitude = 300e3                   # Altitude from Earth's surface [m]
+r0 = R_earth + altitude            # Distance from Earth's center
+v0 = 7500                          # Initial velocity [m/s] (adjust to test different cases)
+theta = np.radians(0)             # Launch angle (0° = purely vertical upward)</p>
+<h1 id="initial-position-and-velocity-vectors">Initial position and velocity vectors</h1>
 <p>x = [r0]
 y = [0]
 vx = [0]
 vy = [v0]</p>
-<h1 id="time-settings">Time settings</h1>
-<p>dt = 1                             # time step [s]
-t_max = 8000
-N = int(t_max / dt)</p>
-<h1 id="simulation-loop">Simulation loop</h1>
+<h1 id="-_4">-------------------------------</h1>
+<h1 id="time-settings">🕒 Time Settings</h1>
+<h1 id="-_5">-------------------------------</h1>
+<p>dt = 1                             # Time step [s]
+t_max = 8000                       # Total simulation time [s]
+N = int(t_max / dt)               # Number of time steps</p>
+<h1 id="-_6">-------------------------------</h1>
+<h1 id="simulation-loop">🔁 Simulation Loop</h1>
+<h1 id="-_7">-------------------------------</h1>
 <p>for i in range(N):
-    r = np.sqrt(x[-1]<strong>2 + y[-1]</strong>2)
-    ax = -G * M * x[-1] / r<strong>3
-    ay = -G * M * y[-1] / r</strong>3</p>
-<pre><code>vx_new = vx[-1] + ax * dt
+    r = np.sqrt(x[-1]<strong>2 + y[-1]</strong>2)  # Distance from Earth's center</p>
+<pre><code># Acceleration due to gravity
+ax = -G * M * x[-1] / r**3
+ay = -G * M * y[-1] / r**3
+
+# Update velocity
+vx_new = vx[-1] + ax * dt
 vy_new = vy[-1] + ay * dt
 
+# Update position
 x_new = x[-1] + vx_new * dt
 y_new = y[-1] + vy_new * dt
 
-# Stop if it hits Earth
+# Stop simulation if payload hits Earth
 if np.sqrt(x_new**2 + y_new**2) &lt;= R_earth:
     break
 
+# Append new values
 vx.append(vx_new)
 vy.append(vy_new)
 x.append(x_new)
 y.append(y_new)
 </code></pre>
-<h1 id="plotting">Plotting</h1>
+<h1 id="-_8">-------------------------------</h1>
+<h1 id="plotting-the-trajectory">📈 Plotting the Trajectory</h1>
+<h1 id="-_9">-------------------------------</h1>
 <p>plt.figure(figsize=(8,8))
 earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth')
 plt.gca().add_patch(earth)</p>
