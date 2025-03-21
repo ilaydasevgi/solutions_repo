@@ -1,5 +1,4 @@
 # Problem 3
-# 🚀 Problem 3: Trajectories of a Freely Released Payload Near Earth
 
 # Trajectories of a Freely Released Payload Near Earth
 
@@ -10,7 +9,6 @@ Before diving into theory, explore how real spacecraft move using NASA’s offic
 > Real-time orbits, mission tracking, and gravity interactions!
 
 ---
-...
 
 ## 🎯 Motivation
 
@@ -89,6 +87,7 @@ We simulate the payload motion using small time steps.
 
 ## 📦 Python Implementation
 
+´´´python
 import numpy as np
 import matplotlib.pyplot as plt
 
