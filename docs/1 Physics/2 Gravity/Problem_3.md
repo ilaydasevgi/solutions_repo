@@ -115,31 +115,32 @@ $$
 import numpy as np
 
 # Constants
-G = 6.67430e-11
-M = 5.972e24
-R_earth = 6.371e6
+G = 6.67430e-11       # gravitational constant (m^3 kg^-1 s^-2)
+M = 5.972e24          # mass of Earth (kg)
+R_earth = 6.371e6     # radius of Earth (m)
 
 # Initial conditions
-altitude = 300e3
-r0 = R_earth + altitude
-v0 = 7500  # m/s
-theta = np.radians(0)  # launch angle
+altitude = 300e3                   # 300 km altitude
+r0 = R_earth + altitude            # initial distance from Earth's center
+v0 = 7500                          # initial speed (m/s)
 
 x = [r0]
 y = [0]
 vx = [0]
 vy = [v0]
 
-dt = 1
-t_max = 8000
+dt = 1             # time step (s)
+t_max = 8000       # max simulation time (s)
 N = int(t_max / dt)
 
 print("Time(s)\tX(km)\tY(km)\tSpeed(km/s)\tDistance(km)")
 
 for i in range(N):
     r = np.sqrt(x[-1]**2 + y[-1]**2)
-    ax = -G * M * x[-1] / r**3
-    ay = -G * M * y[-1] / r**3
+    r3 = r**3
+
+    ax = -G * M * x[-1] / r3
+    ay = -G * M * y[-1] / r3
 
     vx_new = vx[-1] + ax * dt
     vy_new = vy[-1] + ay * dt
@@ -160,6 +161,7 @@ for i in range(N):
     y.append(y_new)
     vx.append(vx_new)
     vy.append(vy_new)
+
 
 ## 🔍 Explore Further: Beyond Earth
 
