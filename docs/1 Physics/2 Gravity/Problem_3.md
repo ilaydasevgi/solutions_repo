@@ -87,33 +87,27 @@ We simulate the payload motion using small time steps.
 
 ## 📦 Python Implementation
 
-```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
-G = 6.67430e-11        # gravitational constant [m^3/kg/s^2]
-M = 5.972e24           # Earth mass [kg]
-R_earth = 6.371e6      # Earth radius [m]
+G = 6.67430e-11
+M = 5.972e24
+R_earth = 6.371e6
 
-# Initial conditions
-altitude = 300e3                   # 300 km altitude
+altitude = 300e3
 r0 = R_earth + altitude
-v0 = 7500                          # initial speed [m/s] (tune this)
-theta = np.radians(0)             # angle w.r.t. horizontal
+v0 = 7500
+theta = np.radians(0)
 
-# Position and velocity vectors
 x = [r0]
 y = [0]
 vx = [0]
 vy = [v0]
 
-# Time settings
-dt = 1                             # time step [s]
+dt = 1
 t_max = 8000
 N = int(t_max / dt)
 
-# Simulation loop
 for i in range(N):
     r = np.sqrt(x[-1]**2 + y[-1]**2)
     ax = -G * M * x[-1] / r**3
@@ -125,7 +119,6 @@ for i in range(N):
     x_new = x[-1] + vx_new * dt
     y_new = y[-1] + vy_new * dt
 
-    # Stop if it hits Earth
     if np.sqrt(x_new**2 + y_new**2) <= R_earth:
         break
 
@@ -134,12 +127,11 @@ for i in range(N):
     x.append(x_new)
     y.append(y_new)
 
-# Plotting
-plt.figure(figsize=(8,8))
+plt.figure(figsize=(8, 8))
 earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth')
 plt.gca().add_patch(earth)
 
-plt.plot(x, y, label='Payload Trajectory')
+plt.plot(x, y, label='Payload Trajectory', color='red')
 plt.xlabel('x [m]')
 plt.ylabel('y [m]')
 plt.title('Payload Trajectory Near Earth')
@@ -147,6 +139,7 @@ plt.axis('equal')
 plt.grid(True)
 plt.legend()
 plt.show()
+
 
 ---
 
