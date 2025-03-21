@@ -234,28 +234,22 @@ v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
 </ul>
 <hr/>
 <h2 id="python-implementation">📦 Python Implementation</h2>
-<p>```python
-import numpy as np
+<p>import numpy as np
 import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>G = 6.67430e-11        # gravitational constant [m^3/kg/s^2]
-M = 5.972e24           # Earth mass [kg]
-R_earth = 6.371e6      # Earth radius [m]</p>
-<h1 id="initial-conditions">Initial conditions</h1>
-<p>altitude = 300e3                   # 300 km altitude
+<p>G = 6.67430e-11
+M = 5.972e24
+R_earth = 6.371e6</p>
+<p>altitude = 300e3
 r0 = R_earth + altitude
-v0 = 7500                          # initial speed [m/s] (tune this)
-theta = np.radians(0)             # angle w.r.t. horizontal</p>
-<h1 id="position-and-velocity-vectors">Position and velocity vectors</h1>
+v0 = 7500
+theta = np.radians(0)</p>
 <p>x = [r0]
 y = [0]
 vx = [0]
 vy = [v0]</p>
-<h1 id="time-settings">Time settings</h1>
-<p>dt = 1                             # time step [s]
+<p>dt = 1
 t_max = 8000
 N = int(t_max / dt)</p>
-<h1 id="simulation-loop">Simulation loop</h1>
 <p>for i in range(N):
     r = np.sqrt(x[-1]<strong>2 + y[-1]</strong>2)
     ax = -G * M * x[-1] / r<strong>3
@@ -266,7 +260,6 @@ vy_new = vy[-1] + ay * dt
 x_new = x[-1] + vx_new * dt
 y_new = y[-1] + vy_new * dt
 
-# Stop if it hits Earth
 if np.sqrt(x_new**2 + y_new**2) &lt;= R_earth:
     break
 
@@ -275,11 +268,10 @@ vy.append(vy_new)
 x.append(x_new)
 y.append(y_new)
 </code></pre>
-<h1 id="plotting">Plotting</h1>
-<p>plt.figure(figsize=(8,8))
+<p>plt.figure(figsize=(8, 8))
 earth = plt.Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth')
 plt.gca().add_patch(earth)</p>
-<p>plt.plot(x, y, label='Payload Trajectory')
+<p>plt.plot(x, y, label='Payload Trajectory', color='red')
 plt.xlabel('x [m]')
 plt.ylabel('y [m]')
 plt.title('Payload Trajectory Near Earth')
