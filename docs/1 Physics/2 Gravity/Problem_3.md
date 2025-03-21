@@ -112,7 +112,6 @@ $$
 
 ##  Python Implementation
 
-```python
 import numpy as np
 
 # Constants
