@@ -109,7 +109,7 @@ plt.show()
 ## **4. Extension to Elliptical Orbits**
 Kepler's Third Law also applies to **elliptical orbits**, where:
 
-- $$r$$ is replaced by the **semi-major axis** $$a$$
+- $r$ is replaced by the **semi-major axis** $a$
 - The relationship still holds: $$T^2 \propto a^3$$
 
 This generalization allows for:
