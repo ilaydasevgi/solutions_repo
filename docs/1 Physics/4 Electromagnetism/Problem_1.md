@@ -91,7 +91,6 @@ def lorentz_force(q, m, E, B, v0, r0, dt, steps):
     return r, v
 
 ```
-![](??.png)
 
 ###  Interactive Lorentz Force Simulations
 
@@ -102,3 +101,5 @@ Explore these online tools to interactively understand the Lorentz force:
 - [MyPhysicsLab: Lorentz Force](https://www.myphysicslab.com/electric-charges/electric-magnetic-deflection-en.html)
 
 These visual tools can help you explore the vector nature of force, circular motion in B-fields, and drift dynamics in crossed fields.
+
+![](??.png)
