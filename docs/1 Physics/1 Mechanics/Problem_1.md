@@ -1,5 +1,5 @@
 #  Problem 1
-# : Investigating the Range as a Function of the Angle of Projection
+# Investigating the Range as a Function of the Angle of Projection
 
 ---
 
@@ -18,6 +18,7 @@ By investigating this, we uncover the elegant symmetry in projectile motion and 
 ##  1. Theoretical Foundation
 
 We begin with the ideal case of projectile motion:
+![ Alt Text](00.png)
 - No air resistance
 - Constant gravitational acceleration \( g \)
 - Launch from ground level
@@ -62,11 +63,11 @@ This equation shows that:
 - The range depends **sinusoidally** on the **angle**
 - Maximum range occurs at \( \theta = 45^\circ \)
 - It's symmetric around \( 45^\circ \) (e.g., \( 30^\circ \) and \( 60^\circ \) give same range)
-
+![ Alt Text](21.png)
 ---
 
 ##  2. Analysis of the Range
-
+![ Alt Text](000.png)
 ###  Effect of Varying Launch Angle:
 
 From the formula:
@@ -164,4 +165,4 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+```
