@@ -131,6 +131,8 @@ print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A'
 
 ...
 
+![](090.png)
+
 ### Example 2: Simple Parallel
 G2 = nx.MultiGraph()
 G2.add_edge('A', 'B', resistance=6)
@@ -143,6 +145,7 @@ draw_graph(simplified_G2, "After: Parallel Reduced")
 print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A', 'B'), "Ω")
 
 ...
+![](11.png)
 
 ### Example 3: Nested Combination
 G3 = nx.MultiGraph()
@@ -158,3 +161,11 @@ draw_graph(simplified_G3, "After: Nested Reduced")
 print("Equivalent Resistance (A–D):", equivalent_resistance(simplified_G3, 'A', 'D'), "Ω")
 
 ...
+![](Unknown.png)
+
+## Additional Interactive Resources
+These tools allow you to build, explore, and analyze resistor circuits beyond theoretical models:
+
+- [Tinkercad Circuits](https://www.tinkercad.com/circuits)
+- [Wolfram: Equivalent Resistance Explorer](https://demonstrations.wolfram.com/EquivalentResistanceInResistorNetworks/)
+- [DCACLab Circuit Builder](https://dcaclab.com/)
