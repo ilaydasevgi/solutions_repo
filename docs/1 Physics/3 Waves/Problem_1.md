@@ -80,6 +80,22 @@ We simulate 4 point sources placed at the vertices of a **square**, centered at 
 
 ##  Python Code
 
+The following Python script simulates the interference pattern produced by **four coherent wave sources** placed at the vertices of a **square**, centered at the origin. Each source emits circular waves with the same amplitude, wavelength, and frequency.
+
+The wave equation used for each point source is:
+
+$$
+u(x, y, t) = A \cdot \cos(k r - \omega t + \phi)
+$$
+
+The total displacement is calculated by the superposition of waves from all sources:
+
+$$
+u_{\text{total}}(x, y, t) = \sum_{i=1}^{N} A \cdot \cos(k r_i - \omega t + \phi)
+$$
+
+Here’s the full Python implementation:
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
