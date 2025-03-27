@@ -145,4 +145,4 @@ plt.show()
 
 # Extensions 
 ![](555.png)
-[Link to Google Collab Simulation]https://colab.research.google.com/drive/1MZGHTR9STk3OZIWyuUVt4DeySR8lZ-JC?authuser=0
+(Link to Google Collab Simulation)https://colab.research.google.com/drive/1MZGHTR9STk3OZIWyuUVt4DeySR8lZ-JC?authuser=0
