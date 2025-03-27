@@ -172,6 +172,105 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h1>
+<hr/>
+<h2 id="motivation">Motivation</h2>
+<p>Calculating <strong>equivalent resistance</strong> is a fundamental problem in analyzing electrical circuits. While it's easy to reduce simple circuits using series and parallel rules, this becomes extremely difficult for large or nested resistor networks.</p>
+<p>Graph theory offers a powerful, systematic approach for simplifying electrical circuits. In this approach:</p>
+<ul>
+<li>Nodes represent <strong>junctions</strong></li>
+<li>Edges represent <strong>resistors</strong>, with edge weights as resistance values</li>
+</ul>
+<p>This allows for <strong>automated reduction</strong> and enables complex real-world applications such as:</p>
+<ul>
+<li>Electrical network simulation</li>
+<li>Optimization of energy efficiency</li>
+<li>Real-time fault diagnosis</li>
+<li>Integration into circuit design software</li>
+</ul>
+<hr/>
+<h2 id="theoretical-framework">Theoretical Framework</h2>
+<p>We represent a circuit as an <strong>undirected graph</strong>:</p>
+<ul>
+<li>Each <strong>edge</strong> is a resistor with resistance <span class="arithmatex">\( R \in \mathbb{R}^+ \)</span></li>
+<li>Each <strong>node</strong> is a junction or connection point</li>
+</ul>
+<p>To simplify the circuit, we use:</p>
+<h3 id="series-rule">Series Rule</h3>
+<p>If a node has degree 2 (i.e. connected to only two other nodes), and it's not a terminal node, then the resistors connected to it are in series:</p>
+<div class="arithmatex">\[
+R_{\text{eq}} = R_1 + R_2
+\]</div>
+<h3 id="parallel-rule">Parallel Rule</h3>
+<p>If two or more resistors connect the <strong>same pair of nodes</strong>, they are in parallel:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{\text{eq}}} = \sum_{i=1}^n \frac{1}{R_i}
+\]</div>
+<hr/>
+<h2 id="graph-simplification-algorithm">Graph Simplification Algorithm</h2>
+<p>We reduce the graph step by step:</p>
+<ol>
+<li>Identify nodes of degree 2 and combine adjacent edges using the <strong>series rule</strong></li>
+<li>Detect parallel edges between the same nodes and combine them using the <strong>parallel rule</strong></li>
+<li>Repeat until the graph contains a single edge between the source and the target node</li>
+</ol>
+<hr/>
+<h2 id="python-implementation-task-2">Python Implementation (Task 2)</h2>
+<p>Below is the full Python implementation using <code>networkx</code> for graph modeling and <code>matplotlib</code> for visualization.</p>
+<pre><code class="language-python">import networkx as nx
+import matplotlib.pyplot as plt
+
+def draw_graph(G, title="Circuit Graph"):
+    pos = nx.spring_layout(G)
+    edge_labels = nx.get_edge_attributes(G, 'resistance')
+    nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=1000)
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+    plt.title(title)
+    plt.show()
+
+def simplify_circuit(G):
+    changed = True
+    while changed:
+        changed = False
+
+        # Series reduction
+        for node in list(G.nodes):
+            if G.degree[node] == 2 and len(G.nodes) &gt; 2:
+                neighbors = list(G.neighbors(node))
+                if len(neighbors) == 2:
+                    r1 = G[node][neighbors[0]]['resistance']
+                    r2 = G[node][neighbors[1]]['resistance']
+                    req = r1 + r2
+                    G.add_edge(neighbors[0], neighbors[1], resistance=req)
+                    G.remove_node(node)
+                    changed = True
+                    break
+
+        # Parallel reduction
+        to_merge = {}
+        for u, v, data in G.edges(data=True):
+            key = tuple(sorted((u, v)))
+            if key in to_merge:
+                to_merge[key].append(data['resistance'])
+            else:
+                to_merge[key] = [data['resistance']]
+
+        for (u, v), resistors in to_merge.items():
+            if len(resistors) &gt; 1:
+                inv_total = sum(1 / r for r in resistors)
+                req = 1 / inv_total if inv_total != 0 else float('inf')
+                G.remove_edges_from([(u, v)] * len(resistors))
+                G.add_edge(u, v, resistance=req)
+                changed = True
+                break
+
+    return G
+
+def equivalent_resistance(G, source, target):
+    if G.has_edge(source, target):
+        return G[source][target]['resistance']
+    return float('inf')
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
