@@ -39,7 +39,7 @@ The Lorentz force governs the motion of charged particles in a variety of physic
 
 ---
 
-## 📐 Theory and Equations of Motion
+##  Theory and Equations of Motion
 
 The motion of a charged particle under Lorentz force follows Newton's second law:
 
@@ -89,5 +89,5 @@ def lorentz_force(q, m, E, B, v0, r0, dt, steps):
         v[i + 1] = v[i] + a * dt
         r[i + 1] = r[i] + v[i] * dt
     return r, v
-
+    
 ```
