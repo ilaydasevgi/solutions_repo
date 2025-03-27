@@ -172,6 +172,87 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="simulating-the-effects-of-the-lorentz-force">⚛️ Simulating the Effects of the Lorentz Force</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The <strong>Lorentz force</strong> is a fundamental concept in electromagnetism and charged particle dynamics. It describes how a charged particle moves under the influence of electric and magnetic fields. The force is given by:</p>
+<div class="arithmatex">\[
+\vec{F} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( \vec{F} \)</span> is the total force on the particle  </li>
+<li><span class="arithmatex">\( q \)</span> is the charge  </li>
+<li><span class="arithmatex">\( \vec{E} \)</span> is the electric field  </li>
+<li><span class="arithmatex">\( \vec{v} \)</span> is the velocity of the particle  </li>
+<li><span class="arithmatex">\( \vec{B} \)</span> is the magnetic field</li>
+</ul>
+<p>The Lorentz force governs the motion of charged particles in a variety of physical systems, including:</p>
+<ul>
+<li>Particle accelerators (e.g., cyclotrons, synchrotrons)  </li>
+<li>Mass spectrometers  </li>
+<li>Plasma confinement in fusion devices (e.g., tokamaks)  </li>
+<li>Astrophysical environments (e.g., solar wind, magnetospheres)</li>
+</ul>
+<hr/>
+<h2 id="applications-of-the-lorentz-force">Applications of the Lorentz Force</h2>
+<ol>
+<li>
+<p><strong>Particle Accelerators</strong><br/>
+   Charged particles are steered and accelerated using magnetic and electric fields based on Lorentz force dynamics.</p>
+</li>
+<li>
+<p><strong>Mass Spectrometers</strong><br/>
+   Particles with different mass-to-charge ratios follow different curved paths in a magnetic field, enabling identification.</p>
+</li>
+<li>
+<p><strong>Plasma Confinement</strong><br/>
+   Magnetic fields are used to confine hot plasmas in devices like <strong>tokamaks</strong>, where charged particles spiral and drift in controlled ways.</p>
+</li>
+</ol>
+<hr/>
+<h2 id="theory-and-equations-of-motion">📐 Theory and Equations of Motion</h2>
+<p>The motion of a charged particle under Lorentz force follows Newton's second law:</p>
+<div class="arithmatex">\[
+m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>This is a system of coupled differential equations that can be solved numerically using methods like <strong>Euler's method</strong> or <strong>Runge-Kutta</strong>.</p>
+<hr/>
+<h2 id="python-simulation-lorentz-force">Python Simulation: Lorentz Force</h2>
+<p>We simulate three cases:</p>
+<ol>
+<li>Uniform Magnetic Field (Only <span class="arithmatex">\( \vec{B} \)</span>)  </li>
+<li>Combined Uniform Electric and Magnetic Fields  </li>
+<li>Crossed <span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> Fields</li>
+</ol>
+<h3 id="parameters">Parameters:</h3>
+<ul>
+<li>Charge <span class="arithmatex">\( q = 1 \)</span> C  </li>
+<li>Mass <span class="arithmatex">\( m = 1 \)</span> kg  </li>
+<li>Initial velocity <span class="arithmatex">\( \vec{v}_0 = (v_x, v_y, v_z) \)</span> </li>
+<li>Fields:<br/>
+<span class="arithmatex">\( \vec{B} = (0, 0, B_z) \)</span><br/>
+<span class="arithmatex">\( \vec{E} = (E_x, 0, 0) \)</span></li>
+</ul>
+<hr/>
+<h3 id="euler-integration-function">Euler Integration Function</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+def lorentz_force(q, m, E, B, v0, r0, dt, steps):
+    r = np.zeros((steps, 3))
+    v = np.zeros((steps, 3))
+    r[0] = r0
+    v[0] = v0
+
+    for i in range(steps - 1):
+        F = q * (E + np.cross(v[i], B))
+        a = F / m
+        v[i + 1] = v[i] + a * dt
+        r[i + 1] = r[i] + v[i] * dt
+    return r, v
+
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
