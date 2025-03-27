@@ -271,6 +271,38 @@ def equivalent_resistance(G, source, target):
         return G[source][target]['resistance']
     return float('inf')
 </code></pre>
+<h2 id="examples-results">Examples &amp; Results</h2>
+<h3 id="example-1-simple-series">Example 1: Simple Series</h3>
+<p>G1 = nx.Graph()
+G1.add_edge('A', 'B', resistance=5)
+G1.add_edge('B', 'C', resistance=10)</p>
+<p>draw_graph(G1, "Before: Series Combination")
+simplified_G1 = simplify_circuit(G1)
+draw_graph(simplified_G1, "After: Series Reduced")
+print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A', 'C'), "Ω")</p>
+<p>...</p>
+<h3 id="example-2-simple-parallel">Example 2: Simple Parallel</h3>
+<p>G2 = nx.MultiGraph()
+G2.add_edge('A', 'B', resistance=6)
+G2.add_edge('A', 'B', resistance=3)
+G2 = nx.Graph(G2)</p>
+<p>draw_graph(G2, "Before: Parallel Combination")
+simplified_G2 = simplify_circuit(G2)
+draw_graph(simplified_G2, "After: Parallel Reduced")
+print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A', 'B'), "Ω")</p>
+<p>...</p>
+<h3 id="example-3-nested-combination">Example 3: Nested Combination</h3>
+<p>G3 = nx.MultiGraph()
+G3.add_edge('A', 'B', resistance=2)
+G3.add_edge('B', 'C', resistance=4)
+G3.add_edge('B', 'C', resistance=4)
+G3.add_edge('C', 'D', resistance=2)
+G3 = nx.Graph(G3)</p>
+<p>draw_graph(G3, "Before: Nested Circuit")
+simplified_G3 = simplify_circuit(G3)
+draw_graph(simplified_G3, "After: Nested Reduced")
+print("Equivalent Resistance (A–D):", equivalent_resistance(simplified_G3, 'A', 'D'), "Ω")</p>
+<p>...</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
