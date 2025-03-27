@@ -23,7 +23,7 @@ The Lorentz force governs the motion of charged particles in a variety of physic
 - Mass spectrometers  
 - Plasma confinement in fusion devices (e.g., tokamaks)  
 - Astrophysical environments (e.g., solar wind, magnetospheres)
-
+![](8.png)
 ---
 
 ##  Applications of the Lorentz Force
@@ -91,3 +91,4 @@ def lorentz_force(q, m, E, B, v0, r0, dt, steps):
     return r, v
 
 ```
+![](??.png)
