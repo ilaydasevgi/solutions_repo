@@ -172,7 +172,7 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">: Investigating the Range as a Function of the Angle of Projection</h1>
+<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
 <hr/>
 <h2 id="motivation">Motivation</h2>
 <p>Projectile motion is one of the most fundamental topics in classical mechanics. Despite its apparent simplicity, it provides a deep insight into the laws of motion and the effects of initial conditions on trajectory.</p>
@@ -184,6 +184,7 @@
 <hr/>
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
 <p>We begin with the ideal case of projectile motion:
+<img alt=" Alt Text" src="../00.png"/>
 - No air resistance
 - Constant gravitational acceleration <span class="arithmatex">\( g \)</span>
 - Launch from ground level</p>
@@ -215,9 +216,11 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 <p>This equation shows that:
 - The range depends <strong>sinusoidally</strong> on the <strong>angle</strong>
 - Maximum range occurs at <span class="arithmatex">\( \theta = 45^\circ \)</span>
-- It's symmetric around <span class="arithmatex">\( 45^\circ \)</span> (e.g., <span class="arithmatex">\( 30^\circ \)</span> and <span class="arithmatex">\( 60^\circ \)</span> give same range)</p>
+- It's symmetric around <span class="arithmatex">\( 45^\circ \)</span> (e.g., <span class="arithmatex">\( 30^\circ \)</span> and <span class="arithmatex">\( 60^\circ \)</span> give same range)
+<img alt=" Alt Text" src="../21.png"/></p>
 <hr/>
 <h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
+<p><img alt=" Alt Text" src="../000.png"/></p>
 <h3 id="effect-of-varying-launch-angle">Effect of Varying Launch Angle:</h3>
 <p>From the formula:</p>
 <div class="arithmatex">\[
@@ -253,24 +256,28 @@ R \propto \frac{1}{g}
 <h2 id="4-python-simulation-range-vs-angle">4. Python Simulation: Range vs Angle</h2>
 <p>We now simulate how the <strong>range changes with angle</strong>, keeping other parameters constant.</p>
 <h3 id="constants">Constants:</h3>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants_1">Constants</h1>
-<p>g = 9.81  # gravitational acceleration (m/s^2)
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+g = 9.81  # gravitational acceleration (m/s^2)
 angles_deg = np.linspace(0, 90, 500)  # launch angles in degrees
-angles_rad = np.radians(angles_deg)</p>
-<h1 id="function-to-compute-range">Function to compute range</h1>
-<p>def compute_range(v0, g, angles_rad):
-    return (v0**2 * np.sin(2 * angles_rad)) / g</p>
-<h1 id="single-v0-case">Single v0 case</h1>
-<p>v0_single = 20  # m/s
-range_single = compute_range(v0_single, g, angles_rad)</p>
-<h1 id="multiple-v0s-for-comparison">Multiple v0s for comparison</h1>
-<p>v0_list = [10, 20, 30]
-ranges_multiple = [compute_range(v, g, angles_rad) for v in v0_list]</p>
-<h1 id="plot-single-range-vs-angle">Plot: Single Range vs. Angle</h1>
-<p>plt.figure(figsize=(8, 5))
+angles_rad = np.radians(angles_deg)
+
+# Function to compute range
+def compute_range(v0, g, angles_rad):
+    return (v0**2 * np.sin(2 * angles_rad)) / g
+
+# Single v0 case
+v0_single = 20  # m/s
+range_single = compute_range(v0_single, g, angles_rad)
+
+# Multiple v0s for comparison
+v0_list = [10, 20, 30]
+ranges_multiple = [compute_range(v, g, angles_rad) for v in v0_list]
+
+# Plot: Single Range vs. Angle
+plt.figure(figsize=(8, 5))
 plt.plot(angles_deg, range_single, label=f'v0 = {v0_single} m/s', color='blue')
 plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
 plt.title('Projectile Range vs. Launch Angle')
@@ -279,9 +286,10 @@ plt.ylabel('Range (meters)')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.show()</p>
-<h1 id="plot-multiple-initial-velocities">Plot: Multiple Initial Velocities</h1>
-<p>plt.figure(figsize=(8, 5))
+plt.show()
+
+# Plot: Multiple Initial Velocities
+plt.figure(figsize=(8, 5))
 for i, v0 in enumerate(v0_list):
     plt.plot(angles_deg, ranges_multiple[i], label=f'v0 = {v0} m/s')
 plt.title('Range vs. Angle for Different Launch Speeds')
@@ -290,7 +298,8 @@ plt.ylabel('Range (meters)')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.show()</p>
+plt.show()
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
