@@ -120,7 +120,7 @@ def equivalent_resistance(G, source, target):
 ## Examples & Results
 
 ### Example 1: Simple Series
-````phyton
+```python
 G1 = nx.Graph()
 G1.add_edge('A', 'B', resistance=5)
 G1.add_edge('B', 'C', resistance=10)
@@ -135,7 +135,7 @@ print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A'
 ![](090.png)
 
 ### Example 2: Simple Parallel
-````phyton
+```python
 G2 = nx.MultiGraph()
 G2.add_edge('A', 'B', resistance=6)
 G2.add_edge('A', 'B', resistance=3)
@@ -150,7 +150,7 @@ print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A'
 ![](11.png)
 
 ### Example 3: Nested Combination
-```phyton
+```python
 G3 = nx.MultiGraph()
 G3.add_edge('A', 'B', resistance=2)
 G3.add_edge('B', 'C', resistance=4)
