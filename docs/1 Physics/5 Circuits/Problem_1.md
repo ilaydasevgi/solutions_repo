@@ -120,6 +120,7 @@ def equivalent_resistance(G, source, target):
 ## Examples & Results
 
 ### Example 1: Simple Series
+````phyton
 G1 = nx.Graph()
 G1.add_edge('A', 'B', resistance=5)
 G1.add_edge('B', 'C', resistance=10)
@@ -129,11 +130,12 @@ simplified_G1 = simplify_circuit(G1)
 draw_graph(simplified_G1, "After: Series Reduced")
 print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A', 'C'), "Ω")
 
-...
+```
 
 ![](090.png)
 
 ### Example 2: Simple Parallel
+````phyton
 G2 = nx.MultiGraph()
 G2.add_edge('A', 'B', resistance=6)
 G2.add_edge('A', 'B', resistance=3)
@@ -144,10 +146,11 @@ simplified_G2 = simplify_circuit(G2)
 draw_graph(simplified_G2, "After: Parallel Reduced")
 print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A', 'B'), "Ω")
 
-...
+```
 ![](11.png)
 
 ### Example 3: Nested Combination
+```phyton
 G3 = nx.MultiGraph()
 G3.add_edge('A', 'B', resistance=2)
 G3.add_edge('B', 'C', resistance=4)
@@ -159,8 +162,7 @@ draw_graph(G3, "Before: Nested Circuit")
 simplified_G3 = simplify_circuit(G3)
 draw_graph(simplified_G3, "After: Nested Reduced")
 print("Equivalent Resistance (A–D):", equivalent_resistance(simplified_G3, 'A', 'D'), "Ω")
-
-...
+```
 ![](Unknown.png)
 
 ## Additional Interactive Resources
