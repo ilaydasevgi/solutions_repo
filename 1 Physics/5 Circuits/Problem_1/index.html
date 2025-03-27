@@ -273,20 +273,19 @@ def equivalent_resistance(G, source, target):
 </code></pre>
 <h2 id="examples-results">Examples &amp; Results</h2>
 <h3 id="example-1-simple-series">Example 1: Simple Series</h3>
-<p>````phyton
-G1 = nx.Graph()
+<pre><code class="language-python">G1 = nx.Graph()
 G1.add_edge('A', 'B', resistance=5)
-G1.add_edge('B', 'C', resistance=10)</p>
-<p>draw_graph(G1, "Before: Series Combination")
+G1.add_edge('B', 'C', resistance=10)
+
+draw_graph(G1, "Before: Series Combination")
 simplified_G1 = simplify_circuit(G1)
 draw_graph(simplified_G1, "After: Series Reduced")
-print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A', 'C'), "Ω")</p>
-<pre><code>
-![](090.png)
+print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A', 'C'), "Ω")
 
-### Example 2: Simple Parallel
-````phyton
-G2 = nx.MultiGraph()
+</code></pre>
+<p><img alt="" src="../090.png"/></p>
+<h3 id="example-2-simple-parallel">Example 2: Simple Parallel</h3>
+<pre><code class="language-python">G2 = nx.MultiGraph()
 G2.add_edge('A', 'B', resistance=6)
 G2.add_edge('A', 'B', resistance=3)
 G2 = nx.Graph(G2)
@@ -299,7 +298,7 @@ print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A'
 </code></pre>
 <p><img alt="" src="../11.png"/></p>
 <h3 id="example-3-nested-combination">Example 3: Nested Combination</h3>
-<pre><code class="language-phyton">G3 = nx.MultiGraph()
+<pre><code class="language-python">G3 = nx.MultiGraph()
 G3.add_edge('A', 'B', resistance=2)
 G3.add_edge('B', 'C', resistance=4)
 G3.add_edge('B', 'C', resistance=4)
