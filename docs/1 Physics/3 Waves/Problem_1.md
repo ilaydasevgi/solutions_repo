@@ -45,6 +45,7 @@ Where:
 - \( r = \sqrt{(x - x_0)^2 + (y - y_0)^2} \): Distance from source to point
 - \( \phi \): Initial phase
 
+![](Unknown.png)
 ---
 
 ### Superposition of Waves
@@ -122,3 +123,6 @@ plt.axis('equal')
 plt.tight_layout()
 plt.show()
 
+
+
+[def]: Unknown.png
