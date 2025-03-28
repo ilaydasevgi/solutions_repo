@@ -157,4 +157,3 @@ Explore pendulum physics with these interactive tools:
 - [Desmos – Pendulum Curve](https://www.desmos.com/calculator/fx2qkkcfim)
 
 These simulations let you experiment with pendulum length, gravity, damping, and observe how these affect the period and motion.
-
