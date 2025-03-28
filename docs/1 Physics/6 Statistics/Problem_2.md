@@ -56,9 +56,9 @@ $$
 ### Visualization
 
 We can visualize this method by plotting:
-- 🔵 Points inside the circle (where \( x^2 + y^2 \leq 1 \))
-- 🔴 Points outside the circle but within the square
-
+- Points inside the circle (where \( x^2 + y^2 \leq 1 \))
+- Points outside the circle but within the square
+![](iii.png)
 ---
 
 ### Convergence Analysis
@@ -73,7 +73,8 @@ $$
 \text{Error} \propto \frac{1}{\sqrt{N}}
 $$
 
----
+![](üüü.png)
+
 
 ## Part 2: Estimating \( \pi \) Using Buffon’s Needle
 
@@ -117,6 +118,7 @@ In a graphical simulation, we can show:
 - Highlight needles that cross the lines
 
 This provides an intuitive understanding of the randomness and geometry involved.
+![](77.png)
 
 ---
 
