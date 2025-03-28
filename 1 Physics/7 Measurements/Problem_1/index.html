@@ -172,6 +172,134 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
+<hr/>
+<h2 id="motivation">Motivation</h2>
+<p>The acceleration due to gravity <span class="arithmatex">\( g \)</span> is a fundamental constant of nature, affecting a wide range of physical phenomena, from falling objects to satellite orbits. Determining <span class="arithmatex">\( g \)</span> experimentally allows us to connect theoretical physics to measurable reality.</p>
+<p>One of the most elegant and classical ways to measure <span class="arithmatex">\( g \)</span> is with a <strong>simple pendulum</strong>, where the period of oscillation is directly related to the local gravitational field strength.</p>
+<hr/>
+<h2 id="task">Task</h2>
+<p>Use a simple pendulum to estimate the gravitational acceleration <span class="arithmatex">\( g \)</span>. Carefully measure time, length, and calculate uncertainties. Analyze the precision of your estimate and reflect on sources of error.</p>
+<hr/>
+<h2 id="materials">Materials</h2>
+<ul>
+<li>A string (approximately 1–1.5 meters in length)  </li>
+<li>A small mass (e.g., keychain, metal weight, bag of sugar)  </li>
+<li>A stopwatch (or a smartphone timer)  </li>
+<li>A ruler or measuring tape  </li>
+</ul>
+<hr/>
+<h2 id="procedure">Procedure</h2>
+<h3 id="1-setup">1. Setup</h3>
+<ul>
+<li>Attach the string to a fixed support and tie the mass to the other end.  </li>
+<li>Measure the <strong>length <span class="arithmatex">\( L \)</span></strong> from the suspension point to the center of the mass.  </li>
+<li>Record the <strong>ruler resolution</strong>, then calculate the uncertainty in length as:  </li>
+</ul>
+<div class="arithmatex">\[
+\Delta L = \frac{\text{Ruler Resolution}}{2}
+\]</div>
+<hr/>
+<h3 id="2-data-collection">2. Data Collection</h3>
+<ul>
+<li>Displace the pendulum by a small angle (less than <span class="arithmatex">\(15^\circ\)</span>) and release.  </li>
+<li>Measure the time for <strong>10 complete oscillations</strong> (denoted <span class="arithmatex">\( T_{10} \)</span>).  </li>
+<li>Repeat this process <strong>10 times</strong>, and record all measurements.  </li>
+<li>Calculate the <strong>mean time</strong> <span class="arithmatex">\( \overline{T}_{10} \)</span> and the <strong>standard deviation</strong> <span class="arithmatex">\( \sigma_T \)</span>.  </li>
+<li>Estimate the <strong>uncertainty</strong> in the mean using:</li>
+</ul>
+<div class="arithmatex">\[
+\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} \quad \text{where } n = 10
+\]</div>
+<hr/>
+<h2 id="calculations">Calculations</h2>
+<h3 id="1-calculate-the-period">1. Calculate the Period</h3>
+<p>The period <span class="arithmatex">\( T \)</span> of one oscillation is:</p>
+<div class="arithmatex">\[
+T = \frac{\overline{T}_{10}}{10}
+\]</div>
+<p>And its uncertainty:</p>
+<div class="arithmatex">\[
+\Delta T = \frac{\Delta T_{10}}{10}
+\]</div>
+<hr/>
+<h3 id="2-calculate-gravitational-acceleration">2. Calculate Gravitational Acceleration</h3>
+<p>The formula for gravitational acceleration using a pendulum is:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<hr/>
+<h3 id="3-propagate-uncertainties">3. Propagate Uncertainties</h3>
+<p>The uncertainty in <span class="arithmatex">\( g \)</span> is calculated using propagation of uncertainty:</p>
+<div class="arithmatex">\[
+\Delta g = g \cdot \sqrt{
+    \left( \frac{\Delta L}{L} \right)^2 +
+    \left( 2 \cdot \frac{\Delta T}{T} \right)^2
+}
+\]</div>
+<hr/>
+<h2 id="example-table-fill-with-your-data">Example Table (Fill with Your Data)</h2>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th><span class="arithmatex">\( T_{10} \)</span> (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Mean <span class="arithmatex">\( \overline{T}_{10} \)</span> = ...  </li>
+<li>Standard deviation <span class="arithmatex">\( \sigma_T \)</span> = ...  </li>
+<li><span class="arithmatex">\( T = \overline{T}_{10} / 10 \)</span> = ...  </li>
+<li><span class="arithmatex">\( L = \)</span> ... m ± <span class="arithmatex">\( \Delta L = \)</span> ... m  </li>
+<li><span class="arithmatex">\( g = \)</span> ... m/s² ± <span class="arithmatex">\( \Delta g = \)</span> ...</li>
+</ul>
+<hr/>
+<h2 id="analysis">Analysis</h2>
+<h3 id="1-comparison">1. Comparison</h3>
+<p>Compare your measured value of <span class="arithmatex">\( g \)</span> with the standard value:</p>
+<div class="arithmatex">\[
+g_{\text{standard}} = 9.81 \ \text{m/s}^2
+\]</div>
+<h3 id="2-discussion">2. Discussion</h3>
+<ul>
+<li>How does <strong>length resolution</strong> (i.e., <span class="arithmatex">\( \Delta L \)</span>) affect the uncertainty in <span class="arithmatex">\( g \)</span>?  </li>
+<li>How does <strong>timing variability</strong> (i.e., <span class="arithmatex">\( \Delta T \)</span>) contribute to your final result?  </li>
+<li>What sources of <strong>systematic</strong> or <strong>random</strong> error could influence your measurements?</li>
+</ul>
+<hr/>
+<h2 id="deliverables">Deliverables</h2>
+<ul>
+<li>Table of all <span class="arithmatex">\( T_{10} \)</span> trials, length <span class="arithmatex">\( L \)</span>, and uncertainties  </li>
+<li>Calculated values: <span class="arithmatex">\( \overline{T}_{10} \)</span>, <span class="arithmatex">\( T \)</span>, <span class="arithmatex">\( g \)</span>, <span class="arithmatex">\( \Delta g \)</span> </li>
+<li>Discussion on uncertainties and comparison to the expected value</li>
+</ul>
+<hr/>
+<h2 id="additional-notes">Additional Notes</h2>
+<ul>
+<li>Small angles (&lt; <span class="arithmatex">\(15^\circ\)</span>) are important to ensure the pendulum behaves like a <strong>simple harmonic oscillator</strong>.  </li>
+<li>Repeating measurements reduces <strong>random error</strong>.  </li>
+<li>The accuracy of your stopwatch and human reaction time are key contributors to the <strong>total uncertainty</strong>.</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
