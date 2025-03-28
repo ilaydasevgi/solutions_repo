@@ -147,4 +147,14 @@ $$
 
 ---
 
+## Interactive Simulations
+
+Explore pendulum physics with these interactive tools:
+
+- [PhET – Pendulum Lab](https://phet.colorado.edu/en/simulation/pendulum-lab)
+- [MyPhysicsLab – Pendulum Simulation](https://www.myphysicslab.com/pendulum/pendulum-en.html)
+- [GeoGebra – Simple Pendulum](https://www.geogebra.org/m/AVy9aJ3r)
+- [Desmos – Pendulum Curve](https://www.desmos.com/calculator/fx2qkkcfim)
+
+These simulations let you experiment with pendulum length, gravity, damping, and observe how these affect the period and motion.
 
