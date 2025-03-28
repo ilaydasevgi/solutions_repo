@@ -38,6 +38,7 @@ $$
 \Delta L = \frac{\text{Ruler Resolution}}{2}
 $$
 
+![](Unknown.png)
 ---
 
 ### 2. Data Collection
@@ -51,7 +52,7 @@ $$
 $$
 \Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} \quad \text{where } n = 10
 $$
-
+![](%%.png)
 ---
 
 ## Calculations
@@ -92,7 +93,7 @@ $$
     \left( 2 \cdot \frac{\Delta T}{T} \right)^2
 }
 $$
-
+[](aaa.png)
 ---
 
 ## Example Table (Fill with Your Data)
