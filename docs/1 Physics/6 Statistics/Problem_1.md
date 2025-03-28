@@ -83,3 +83,30 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     plt.tight_layout()
     plt.show()
 ```
+# Example 1
+## Uniform Distribition
+```python
+clt_simulation(
+    population_func=lambda n: np.random.uniform(0, 1, n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Uniform(0, 1)"
+)
+```
+# Example 2 
+## Exponential Distribition 
+```python
+clt_simulation(
+    population_func=lambda n: np.random.exponential(scale=1.0, size=n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Exponential(λ = 1)"
+)
+```
+# Example 3
+## Binomial Distribition 
+```python
+clt_simulation(
+    population_func=lambda n: np.random.binomial(n=10, p=0.5, size=n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Binomial(n=10, p=0.5)"
+)
+```
