@@ -98,6 +98,20 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#python-code-clt-simulation-engine">Python Code: CLT Simulation Engine</a>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#example-1">Example 1</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uniform-distribition">Uniform Distribition</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2">Example 2</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exponential-distribition">Exponential Distribition</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3">Example 3</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#binomial-distribition">Binomial Distribition</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-clt-simulations">Interactive CLT Simulations</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -258,7 +272,7 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     plt.tight_layout()
     plt.show()
 </code></pre>
-<h1 id="example-1">Example 1</h1>
+<h2 id="example-1">Example 1</h2>
 <h2 id="uniform-distribition">Uniform Distribition</h2>
 <pre><code class="language-python">clt_simulation(
     population_func=lambda n: np.random.uniform(0, 1, n),
@@ -266,7 +280,8 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     title="Uniform(0, 1)"
 )
 </code></pre>
-<h1 id="example-2">Example 2</h1>
+<p><img alt="" src="../Unknown.png"/></p>
+<h2 id="example-2">Example 2</h2>
 <h2 id="exponential-distribition">Exponential Distribition</h2>
 <pre><code class="language-python">clt_simulation(
     population_func=lambda n: np.random.exponential(scale=1.0, size=n),
@@ -274,7 +289,8 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     title="Exponential(λ = 1)"
 )
 </code></pre>
-<h1 id="example-3">Example 3</h1>
+<p><img alt="" src="../%C3%9F%C3%9F%C3%9F.png"/></p>
+<h2 id="example-3">Example 3</h2>
 <h2 id="binomial-distribition">Binomial Distribition</h2>
 <pre><code class="language-python">clt_simulation(
     population_func=lambda n: np.random.binomial(n=10, p=0.5, size=n),
@@ -282,6 +298,15 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     title="Binomial(n=10, p=0.5)"
 )
 </code></pre>
+<p><img alt="" src="../%3D%3D.png"/></p>
+<h2 id="interactive-clt-simulations">Interactive CLT Simulations</h2>
+<p>Want to explore CLT hands-on? Try these simulations:</p>
+<ul>
+<li><a href="https://seeing-theory.brown.edu/basic-probability/index.html#section3">Seeing Theory – CLT Visualizer</a></li>
+<li><a href="https://www.lock5stat.com/statkey/index.html?bootstrap">StatKey – Sample Mean Simulation</a></li>
+<li><a href="https://www.desmos.com/calculator/y4ebgtt0pm">Desmos CLT Graph</a></li>
+</ul>
+<p>These tools let you adjust sample sizes, population shapes, and see how sample means evolve</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
