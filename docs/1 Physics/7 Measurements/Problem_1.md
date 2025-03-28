@@ -93,7 +93,9 @@ $$
     \left( 2 \cdot \frac{\Delta T}{T} \right)^2
 }
 $$
+
 [](aaa.png)
+
 ---
 
 ## Example Table (Fill with Your Data)
