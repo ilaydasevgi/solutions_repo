@@ -172,6 +172,148 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="estimating-pi-using-monte-carlo-methods">Estimating <span class="arithmatex">\( \pi \)</span> Using Monte Carlo Methods</h1>
+<hr/>
+<h2 id="motivation">Motivation</h2>
+<p>The number <span class="arithmatex">\( \pi \)</span> is one of the most important constants in mathematics, appearing in geometry, calculus, physics, engineering, and probability. While it is typically calculated using analytical or series methods, it can also be <strong>estimated using randomness</strong> via <strong>Monte Carlo simulations</strong>.</p>
+<p>Monte Carlo methods use repeated random sampling to obtain numerical estimates. One particularly elegant application is the estimation of <span class="arithmatex">\( \pi \)</span> through:</p>
+<ul>
+<li><strong>Geometric probability</strong>: simulating random points inside a square and counting how many fall within an inscribed circle.</li>
+<li><strong>Buffon’s Needle</strong>: a probability problem from the 18th century involving the likelihood that a needle crosses lines on a floor.</li>
+</ul>
+<p>These approaches demonstrate how randomness can approximate precise mathematical values and give us insights into convergence, error, and simulation design.</p>
+<hr/>
+<h2 id="part-1-estimating-pi-using-a-circle">Part 1: Estimating <span class="arithmatex">\( \pi \)</span> Using a Circle</h2>
+<h3 id="theoretical-foundation">Theoretical Foundation</h3>
+<p>Imagine a unit circle (radius <span class="arithmatex">\( r = 1 \)</span>) inscribed within a square of side length 2 (from <span class="arithmatex">\(-1\)</span> to <span class="arithmatex">\(1\)</span> along both axes).</p>
+<p>The area of the square is:
+$$
+A_{\text{square}} = (2r)^2 = 4
+$$</p>
+<p>The area of the circle is:
+$$
+A_{\text{circle}} = \pi r^2 = \pi
+$$</p>
+<p>The ratio of the circle's area to the square’s area is:
+$$
+\frac{A_{\text{circle}}}{A_{\text{square}}} = \frac{\pi}{4}
+$$</p>
+<p>So, if we generate random points uniformly in the square and count the fraction that fall inside the circle (i.e., satisfy <span class="arithmatex">\( x^2 + y^2 \leq 1 \)</span>), we can estimate <span class="arithmatex">\( \pi \)</span> by:</p>
+<div class="arithmatex">\[
+\pi \approx 4 \cdot \frac{\text{Points in Circle}}{\text{Total Points}}
+\]</div>
+<hr/>
+<h3 id="simulation-steps">Simulation Steps</h3>
+<ol>
+<li>Generate <span class="arithmatex">\( N \)</span> random points in the square <span class="arithmatex">\([-1, 1] \times [-1, 1]\)</span></li>
+<li>Count how many fall inside the unit circle</li>
+<li>Apply the formula above to estimate <span class="arithmatex">\( \pi \)</span></li>
+</ol>
+<hr/>
+<h3 id="visualization">Visualization</h3>
+<p>We can visualize this method by plotting:
+- 🔵 Points inside the circle (where <span class="arithmatex">\( x^2 + y^2 \leq 1 \)</span>)
+- 🔴 Points outside the circle but within the square</p>
+<hr/>
+<h3 id="convergence-analysis">Convergence Analysis</h3>
+<p>By increasing the number of points, we should observe:
+- The estimate converges closer to the true value of <span class="arithmatex">\( \pi \)</span>
+- The variance of estimates decreases</p>
+<p>Theoretically, the <strong>standard error</strong> of this method decreases as:</p>
+<div class="arithmatex">\[
+\text{Error} \propto \frac{1}{\sqrt{N}}
+\]</div>
+<hr/>
+<h2 id="part-2-estimating-pi-using-buffons-needle">Part 2: Estimating <span class="arithmatex">\( \pi \)</span> Using Buffon’s Needle</h2>
+<h3 id="theoretical-foundation_1">Theoretical Foundation</h3>
+<p>Buffon’s Needle is a classical probability problem:
+- Drop a needle of length <span class="arithmatex">\( L \)</span> onto a plane with <strong>equally spaced horizontal lines</strong> <span class="arithmatex">\( d \)</span> units apart (with <span class="arithmatex">\( L \leq d \)</span>).
+- The probability <span class="arithmatex">\( P \)</span> that the needle <strong>crosses a line</strong> is:</p>
+<div class="arithmatex">\[
+P = \frac{2L}{\pi d}
+\]</div>
+<p>From this, we can estimate <span class="arithmatex">\( \pi \)</span> using:</p>
+<div class="arithmatex">\[
+\pi \approx \frac{2L \cdot N}{d \cdot C}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( N \)</span> is the number of needle drops
+- <span class="arithmatex">\( C \)</span> is the number of times the needle crosses a line</p>
+<hr/>
+<h3 id="simulation-steps_1">Simulation Steps</h3>
+<ol>
+<li>Simulate random needle drops:</li>
+<li>Randomly choose the needle center position</li>
+<li>Randomly choose its angle</li>
+<li>Count how many needles <strong>cross a line</strong></li>
+<li>Estimate <span class="arithmatex">\( \pi \)</span> using the formula above</li>
+</ol>
+<hr/>
+<h3 id="visualization_1">Visualization</h3>
+<p>In a graphical simulation, we can show:
+- Needles as line segments
+- Horizontal lines they may cross
+- Highlight needles that cross the lines</p>
+<p>This provides an intuitive understanding of the randomness and geometry involved.</p>
+<hr/>
+<h3 id="convergence-behavior">Convergence Behavior</h3>
+<p>Buffon’s Needle converges more slowly than the circle method because:
+- The crossing condition is more specific and less frequently triggered
+- Variance in estimation is higher</p>
+<p>It still demonstrates the power of geometric probability in estimating <span class="arithmatex">\( \pi \)</span>.</p>
+<hr/>
+<h2 id="comparison-of-methods">Comparison of Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Formula</th>
+<th>Speed</th>
+<th>Accuracy</th>
+<th>Visualization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circle Monte Carlo</td>
+<td><span class="arithmatex">\( \pi \approx 4 \cdot \frac{\text{Inside}}{\text{Total}} \)</span></td>
+<td>Fast</td>
+<td>Good</td>
+<td>2D scatter plot</td>
+</tr>
+<tr>
+<td>Buffon’s Needle</td>
+<td><span class="arithmatex">\( \pi \approx \frac{2L \cdot N}{d \cdot C} \)</span></td>
+<td>Slower</td>
+<td>Noisier</td>
+<td>Needle over lines</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="key-insights">Key Insights</h2>
+<ul>
+<li>Both methods rely on <strong>random sampling</strong> and <strong>geometry</strong>.</li>
+<li>Increasing the number of trials improves the accuracy.</li>
+<li>Monte Carlo methods offer <strong>visual and intuitive</strong> ways to estimate mathematical constants.</li>
+<li>These ideas generalize to simulate <strong>complex systems in physics, biology, finance, and beyond</strong>.</li>
+</ul>
+<hr/>
+<h2 id="extensions">Extensions</h2>
+<ul>
+<li>Try using <strong>different values of <span class="arithmatex">\( L \)</span> and <span class="arithmatex">\( d \)</span></strong> in Buffon’s Needle</li>
+<li>Estimate <strong>convergence rates</strong> numerically by plotting error vs. sample size</li>
+<li>Animate the simulation process to show convergence dynamically</li>
+<li>Use <strong>parallel computing</strong> to increase the number of trials</li>
+</ul>
+<hr/>
+<h2 id="related-simulations-interactive-tools">Related Simulations (Interactive Tools)</h2>
+<ul>
+<li><a href="https://seeing-theory.brown.edu/probability-distributions/index.html#section3">Visualize Monte Carlo Estimation of Pi – Seeing Theory</a></li>
+<li><a href="https://www.desmos.com/calculator/f5x4eduu5m">Desmos – Pi Approximation (Monte Carlo)</a></li>
+</ul>
+<p>These tools help build intuition and reinforce the geometric probability interpretation of <span class="arithmatex">\( \pi \)</span>.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
