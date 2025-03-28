@@ -258,6 +258,30 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     plt.tight_layout()
     plt.show()
 </code></pre>
+<h1 id="example-1">Example 1</h1>
+<h2 id="uniform-distribition">Uniform Distribition</h2>
+<pre><code class="language-python">clt_simulation(
+    population_func=lambda n: np.random.uniform(0, 1, n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Uniform(0, 1)"
+)
+</code></pre>
+<h1 id="example-2">Example 2</h1>
+<h2 id="exponential-distribition">Exponential Distribition</h2>
+<pre><code class="language-python">clt_simulation(
+    population_func=lambda n: np.random.exponential(scale=1.0, size=n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Exponential(λ = 1)"
+)
+</code></pre>
+<h1 id="example-3">Example 3</h1>
+<h2 id="binomial-distribition">Binomial Distribition</h2>
+<pre><code class="language-python">clt_simulation(
+    population_func=lambda n: np.random.binomial(n=10, p=0.5, size=n),
+    sample_sizes=[5, 10, 30, 50],
+    title="Binomial(n=10, p=0.5)"
+)
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
