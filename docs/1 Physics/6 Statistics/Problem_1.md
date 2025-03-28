@@ -83,7 +83,7 @@ def clt_simulation(population_func, sample_sizes, n_trials=5000, pop_size=100000
     plt.tight_layout()
     plt.show()
 ```
-# Example 1
+## Example 1
 ## Uniform Distribition
 ```python
 clt_simulation(
@@ -92,7 +92,8 @@ clt_simulation(
     title="Uniform(0, 1)"
 )
 ```
-# Example 2 
+![](Unknown.png)
+## Example 2 
 ## Exponential Distribition 
 ```python
 clt_simulation(
@@ -101,7 +102,8 @@ clt_simulation(
     title="Exponential(λ = 1)"
 )
 ```
-# Example 3
+![](ßßß.png)
+## Example 3
 ## Binomial Distribition 
 ```python
 clt_simulation(
@@ -110,3 +112,13 @@ clt_simulation(
     title="Binomial(n=10, p=0.5)"
 )
 ```
+![](==.png)
+## Interactive CLT Simulations
+
+Want to explore CLT hands-on? Try these simulations:
+
+- [Seeing Theory – CLT Visualizer](https://seeing-theory.brown.edu/basic-probability/index.html#section3)
+- [StatKey – Sample Mean Simulation](https://www.lock5stat.com/statkey/index.html?bootstrap)
+- [Desmos CLT Graph](https://www.desmos.com/calculator/y4ebgtt0pm)
+
+These tools let you adjust sample sizes, population shapes, and see how sample means evolve
