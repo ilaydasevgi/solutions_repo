@@ -51,7 +51,8 @@ $$
 2. Count how many fall inside the unit circle
 3. Apply the formula above to estimate \( \pi \)
 
----
+-----
+----
 ### What is The Monte Carlo Method
 
 The **Monte Carlo method** is a numerical approach that uses **random sampling** to solve mathematical problems that may be deterministic or probabilistic in nature.
@@ -119,7 +120,7 @@ We can visualize this method by plotting:
 - Points outside the circle but within the square
 ![](iii.png)
 ---
-
+-----
 ### Convergence Analysis
 
 By increasing the number of points, we should observe:
@@ -167,7 +168,8 @@ Where:
 2. Count how many needles **cross a line**
 3. Estimate \( \pi \) using the formula above
 
----
+-----
+----
 ##### Buffon's Needle Method
 
 **Buffon’s Needle** is a probabilistic method for estimating \( \pi \) by simulating needle drops onto a surface with parallel lines.
@@ -213,7 +215,7 @@ Where:
 
 This method is a classic **Monte Carlo simulation** that uses **geometric probability** to estimate π. It’s also a great demonstration of how randomness can solve complex mathematical problems.
 
----
+-----
 ### Visualization
 
 In a graphical simulation, we can show:
