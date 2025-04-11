@@ -134,6 +134,27 @@ print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A'
 
 ![](090.png)
 
+## Series Circuit: A-B-C
+
+This is a **series circuit** with three nodes: **A**, **B**, and **C**. The connections and resistances between nodes are as follows:
+
+- From **A** to **B**: resistance \( R_{AB} = 5 \, \Omega \)
+- From **B** to **C**: resistance \( R_{BC} = 10 \, \Omega \)
+
+The total resistance \( R_{total} \) in a series circuit is calculated as:
+
+$$
+R_{total} = R_{AB} + R_{BC} = 5 \, \Omega + 10 \, \Omega = 15 \, \Omega
+$$
+
+### Characteristics of a Series Circuit
+
+- The **same current** flows through all components.
+- The **total resistance** is the sum of all resistances.
+- The **voltage** is divided based on each component's resistance.
+
+
+
 ### Example 2: Simple Parallel
 ```python
 G2 = nx.MultiGraph()
@@ -148,6 +169,31 @@ print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A'
 
 ```
 ![](11.png)
+
+## Parallel Resistors: A ↔ B
+
+This is a **parallel circuit** with multiple resistors connecting node **A** to node **B**. Each branch has a resistance of:
+
+- \( R = 3 \, \Omega \)
+
+If there are \( n \) such resistors in parallel, the total resistance \( R_{total} \) is calculated using the formula:
+
+$$
+\frac{1}{R_{total}} = \sum_{i=1}^{n} \frac{1}{R_i}
+$$
+
+For example, with two resistors of \( 3 \, \Omega \) in parallel:
+
+$$
+\frac{1}{R_{total}} = \frac{1}{3} + \frac{1}{3} = \frac{2}{3} \quad \Rightarrow \quad R_{total} = \frac{3}{2} = 1.5 \, \Omega
+$$
+
+### Key Properties of Parallel Circuits:
+
+- **Voltage** is the same across all branches.
+- **Total resistance** decreases with more branches.
+- **Current** divides among the paths based on resistance values.
+
 
 ### Example 3: Nested Combination
 ```python
@@ -164,6 +210,38 @@ draw_graph(simplified_G3, "After: Nested Reduced")
 print("Equivalent Resistance (A–D):", equivalent_resistance(simplified_G3, 'A', 'D'), "Ω")
 ```
 ![](Unknown.png)
+
+## Nested Resistor Network: Series + Parallel
+
+This network consists of resistors between nodes:
+
+- \( R_{AB} = 2\, \Omega \)
+- \( R_{BC} = 4\, \Omega \)
+- \( R_{CD} = 2\, \Omega \)
+
+Assuming a **series connection**, the total resistance is:
+
+$$
+R_{total} = R_{AB} + R_{BC} + R_{CD} = 2 + 4 + 2 = 8 \, \Omega
+$$
+
+### Key Series Circuit Properties:
+
+- **Same current** through all resistors
+- **Total resistance** is the sum
+- **Voltage divides** among resistors
+
+### If Node C had a parallel branch:
+
+Suppose another resistor \( R_{CE} \) (e.g., \( 4\, \Omega \)) connected to a new node, E. Then C would form a junction, creating a **parallel segment**, and you'd calculate it like:
+
+$$
+\frac{1}{R_{parallel}} = \frac{1}{R_{CD}} + \frac{1}{R_{CE}}
+$$
+
+Then plug that back into the total series path.
+
+
 
 ## Additional Interactive Resources
 These tools allow you to build, explore, and analyze resistor circuits beyond theoretical models:
