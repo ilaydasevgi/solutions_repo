@@ -4,7 +4,7 @@
 ---
 Before diving into theory, explore how real spacecraft move using NASA’s official 3D simulation platform:
 
-🌐 [NASA Eyes on the Solar System](https://eyes.nasa.gov/)
+[NASA Eyes on the Solar System](https://eyes.nasa.gov/)
 
 > Real-time orbits, mission tracking, and gravity interactions!
 
@@ -31,7 +31,7 @@ This problem blends **orbital mechanics** with **numerical simulation**, providi
 
 To better understand gravitational attraction and orbital motion, you can explore this interactive simulation:
 
-🌐 [PhET: Gravity and Orbits](https://phet.colorado.edu/en/simulation/gravity-and-orbits)
+ [PhET: Gravity and Orbits](https://phet.colorado.edu/en/simulation/gravity-and-orbits)
 
 > Visualize how mass, distance, and velocity affect planetary orbits and satellite motion in real time!
 
