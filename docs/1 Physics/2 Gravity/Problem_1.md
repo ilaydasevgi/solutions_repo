@@ -12,7 +12,62 @@ This fundamental relationship allows us to:
 - Understand gravitational interactions in celestial mechanics
 
 ---
+## What is The Kepler Law
+### Kepler's Laws of Planetary Motion
+Johannes Kepler formulated three laws that describe the motion of planets around the Sun:
 
+---
+
+### 1. **Law of Ellipses**
+Each planet moves in an **elliptical orbit** with the **Sun at one focus**.
+
+An ellipse is mathematically represented by:
+
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+$$
+
+Where:
+- \( a \): semi-major axis
+- \( b \): semi-minor axis
+
+---
+
+### 2. **Law of Equal Areas**
+A line segment joining a planet and the Sun sweeps out **equal areas in equal times**.
+
+This implies the planet moves **faster when closer** to the Sun and **slower when farther**.
+
+Mathematically:
+
+$$
+\frac{dA}{dt} = \text{constant}
+$$
+
+Where:
+- \( A \): area swept out
+- \( t \): time
+
+---
+
+### 3. **Law of Harmonies**
+The square of the orbital period \( T \) of a planet is **proportional to the cube** of the semi-major axis \( a \) of its orbit:
+
+$$
+T^2 \propto a^3
+$$
+
+Or for two planets orbiting the same star:
+
+$$
+\frac{T_1^2}{a_1^3} = \frac{T_2^2}{a_2^3}
+$$
+
+Where:
+- \( T \): orbital period (in years)
+- \( a \): semi-major axis (in astronomical units)
+
+---
 ## **1. Derivation of the Relationship**
 To derive Kepler's Third Law, we start with Newton’s Law of Gravitation:
 
