@@ -170,7 +170,7 @@ Where:
 
 -----
 ----
-##### Buffon's Needle Method
+##### What is The Buffon's Needle Method
 
 **Buffon’s Needle** is a probabilistic method for estimating \( \pi \) by simulating needle drops onto a surface with parallel lines.
 
