@@ -210,6 +210,55 @@ $$</p>
 <li>Apply the formula above to estimate <span class="arithmatex">\( \pi \)</span></li>
 </ol>
 <hr/>
+<h3 id="what-is-the-monte-carlo-method">What is The Monte Carlo Method</h3>
+<p>The <strong>Monte Carlo method</strong> is a numerical approach that uses <strong>random sampling</strong> to solve mathematical problems that may be deterministic or probabilistic in nature.</p>
+<hr/>
+<h2 id="basic-principle">Basic Principle</h2>
+<p>To estimate a quantity <span class="arithmatex">\( Q \)</span>, perform many random experiments and take the average result:</p>
+<div class="arithmatex">\[
+Q \approx \frac{1}{N} \sum_{i=1}^{N} f(x_i)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( N \)</span>: number of random samples
+- <span class="arithmatex">\( x_i \)</span>: randomly sampled inputs
+- <span class="arithmatex">\( f(x_i) \)</span>: the function evaluated at <span class="arithmatex">\( x_i \)</span></p>
+<hr/>
+<h2 id="example-estimating-pi">Example: Estimating <span class="arithmatex">\( \pi \)</span></h2>
+<ol>
+<li>Generate <span class="arithmatex">\( N \)</span> random points in the unit square <span class="arithmatex">\([0, 1] \times [0, 1]\)</span></li>
+<li>Count how many fall inside the quarter-circle of radius 1:</li>
+</ol>
+<div class="arithmatex">\[
+\text{if } x^2 + y^2 \leq 1 \text{, it's inside}
+\]</div>
+<ol>
+<li>Then approximate <span class="arithmatex">\( \pi \)</span> as:</li>
+</ol>
+<div class="arithmatex">\[
+\pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{N}
+\]</div>
+<hr/>
+<h2 id="applications">Applications</h2>
+<ul>
+<li><strong>Physics</strong>: Particle transport, statistical mechanics</li>
+<li><strong>Finance</strong>: Option pricing, risk analysis</li>
+<li><strong>Engineering</strong>: Reliability simulations</li>
+<li><strong>Mathematics</strong>: Multidimensional integrals</li>
+</ul>
+<hr/>
+<h2 id="key-advantages">Key Advantages</h2>
+<ul>
+<li>Handles high-dimensional problems</li>
+<li>Easy to implement</li>
+<li>Scales well with computational power</li>
+</ul>
+<hr/>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Convergence is slow (<span class="arithmatex">\( \propto \frac{1}{\sqrt{N}} \)</span>)</li>
+<li>Needs a large number of samples for high accuracy</li>
+</ul>
+<hr/>
 <h3 id="visualization">Visualization</h3>
 <p>We can visualize this method by plotting:
 - Points inside the circle (where <span class="arithmatex">\( x^2 + y^2 \leq 1 \)</span>)
@@ -249,6 +298,36 @@ P = \frac{2L}{\pi d}
 <li>Count how many needles <strong>cross a line</strong></li>
 <li>Estimate <span class="arithmatex">\( \pi \)</span> using the formula above</li>
 </ol>
+<hr/>
+<h5 id="buffons-needle-method">Buffon's Needle Method</h5>
+<p><strong>Buffon’s Needle</strong> is a probabilistic method for estimating <span class="arithmatex">\( \pi \)</span> by simulating needle drops onto a surface with parallel lines.</p>
+<hr/>
+<h2 id="setup">Setup</h2>
+<ul>
+<li>Needle length: <span class="arithmatex">\( L \)</span></li>
+<li>Distance between lines: <span class="arithmatex">\( D \)</span></li>
+<li><span class="arithmatex">\( L \leq D \)</span></li>
+<li>Drop the needle <span class="arithmatex">\( N \)</span> times</li>
+</ul>
+<p>Let <span class="arithmatex">\( H \)</span> be the number of times the needle <strong>crosses</strong> a line.</p>
+<hr/>
+<h2 id="theoretical-probability">Theoretical Probability</h2>
+<p>The probability that a needle crosses a line is:</p>
+<div class="arithmatex">\[
+P = \frac{2L}{\pi D}
+\]</div>
+<hr/>
+<h2 id="estimating-pi">Estimating <span class="arithmatex">\( \pi \)</span></h2>
+<p>By observing the experimental crossing rate:</p>
+<div class="arithmatex">\[
+\pi \approx \frac{2L \cdot N}{D \cdot H}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( N \)</span>: number of total trials
+- <span class="arithmatex">\( H \)</span>: number of hits (crossings)</p>
+<hr/>
+<h2 id="application">Application</h2>
+<p>This method is a classic <strong>Monte Carlo simulation</strong> that uses <strong>geometric probability</strong> to estimate π. It’s also a great demonstration of how randomness can solve complex mathematical problems.</p>
 <hr/>
 <h3 id="visualization_1">Visualization</h3>
 <p>In a graphical simulation, we can show:
