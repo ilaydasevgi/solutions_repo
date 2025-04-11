@@ -48,7 +48,7 @@ m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B})
 $$
 
 This is a system of coupled differential equations that can be solved numerically using methods like **Euler's method** or **Runge-Kutta**.
-![](Lorentz_force.svg.png)
+
 ---
 
 ## Python Simulation: Lorentz Force
