@@ -52,7 +52,66 @@ $$
 3. Apply the formula above to estimate \( \pi \)
 
 ---
+### What is The Monte Carlo Method
 
+The **Monte Carlo method** is a numerical approach that uses **random sampling** to solve mathematical problems that may be deterministic or probabilistic in nature.
+
+---
+
+##  Basic Principle
+
+To estimate a quantity \( Q \), perform many random experiments and take the average result:
+
+$$
+Q \approx \frac{1}{N} \sum_{i=1}^{N} f(x_i)
+$$
+
+Where:
+- \( N \): number of random samples
+- \( x_i \): randomly sampled inputs
+- \( f(x_i) \): the function evaluated at \( x_i \)
+
+---
+
+## Example: Estimating \( \pi \)
+
+1. Generate \( N \) random points in the unit square \([0, 1] \times [0, 1]\)
+2. Count how many fall inside the quarter-circle of radius 1:
+
+$$
+\text{if } x^2 + y^2 \leq 1 \text{, it's inside}
+$$
+
+3. Then approximate \( \pi \) as:
+
+$$
+\pi \approx 4 \cdot \frac{\text{Number of points inside circle}}{N}
+$$
+
+---
+
+##  Applications
+
+- **Physics**: Particle transport, statistical mechanics
+- **Finance**: Option pricing, risk analysis
+- **Engineering**: Reliability simulations
+- **Mathematics**: Multidimensional integrals
+
+---
+
+## Key Advantages
+
+- Handles high-dimensional problems
+- Easy to implement
+- Scales well with computational power
+
+---
+
+## Limitations
+
+- Convergence is slow (\( \propto \frac{1}{\sqrt{N}} \))
+- Needs a large number of samples for high accuracy
+---
 ### Visualization
 
 We can visualize this method by plotting:
@@ -109,7 +168,52 @@ Where:
 3. Estimate \( \pi \) using the formula above
 
 ---
+##### Buffon's Needle Method
 
+**Buffon’s Needle** is a probabilistic method for estimating \( \pi \) by simulating needle drops onto a surface with parallel lines.
+
+---
+
+## Setup
+
+- Needle length: \( L \)
+- Distance between lines: \( D \)
+- \( L \leq D \)
+- Drop the needle \( N \) times
+
+Let \( H \) be the number of times the needle **crosses** a line.
+
+---
+
+## Theoretical Probability
+
+The probability that a needle crosses a line is:
+
+$$
+P = \frac{2L}{\pi D}
+$$
+
+---
+
+## Estimating \( \pi \)
+
+By observing the experimental crossing rate:
+
+$$
+\pi \approx \frac{2L \cdot N}{D \cdot H}
+$$
+
+Where:
+- \( N \): number of total trials
+- \( H \): number of hits (crossings)
+
+---
+
+## Application
+
+This method is a classic **Monte Carlo simulation** that uses **geometric probability** to estimate π. It’s also a great demonstration of how randomness can solve complex mathematical problems.
+
+---
 ### Visualization
 
 In a graphical simulation, we can show:
