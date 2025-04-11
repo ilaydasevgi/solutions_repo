@@ -1,5 +1,5 @@
 # Problem 1
- # Exploring the Central Limit Theorem through Simulations
+ ## Exploring the Central Limit Theorem through Simulations
 
 ---
 
