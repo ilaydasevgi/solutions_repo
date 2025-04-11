@@ -284,6 +284,22 @@ print("Equivalent Resistance (A–C):", equivalent_resistance(simplified_G1, 'A'
 
 </code></pre>
 <p><img alt="" src="../090.png"/></p>
+<h2 id="series-circuit-a-b-c">Series Circuit: A-B-C</h2>
+<p>This is a <strong>series circuit</strong> with three nodes: <strong>A</strong>, <strong>B</strong>, and <strong>C</strong>. The connections and resistances between nodes are as follows:</p>
+<ul>
+<li>From <strong>A</strong> to <strong>B</strong>: resistance <span class="arithmatex">\( R_{AB} = 5 \, \Omega \)</span></li>
+<li>From <strong>B</strong> to <strong>C</strong>: resistance <span class="arithmatex">\( R_{BC} = 10 \, \Omega \)</span></li>
+</ul>
+<p>The total resistance <span class="arithmatex">\( R_{total} \)</span> in a series circuit is calculated as:</p>
+<div class="arithmatex">\[
+R_{total} = R_{AB} + R_{BC} = 5 \, \Omega + 10 \, \Omega = 15 \, \Omega
+\]</div>
+<h3 id="characteristics-of-a-series-circuit">Characteristics of a Series Circuit</h3>
+<ul>
+<li>The <strong>same current</strong> flows through all components.</li>
+<li>The <strong>total resistance</strong> is the sum of all resistances.</li>
+<li>The <strong>voltage</strong> is divided based on each component's resistance.</li>
+</ul>
 <h3 id="example-2-simple-parallel">Example 2: Simple Parallel</h3>
 <pre><code class="language-python">G2 = nx.MultiGraph()
 G2.add_edge('A', 'B', resistance=6)
@@ -297,6 +313,25 @@ print("Equivalent Resistance (A–B):", equivalent_resistance(simplified_G2, 'A'
 
 </code></pre>
 <p><img alt="" src="../11.png"/></p>
+<h2 id="parallel-resistors-a-b">Parallel Resistors: A ↔ B</h2>
+<p>This is a <strong>parallel circuit</strong> with multiple resistors connecting node <strong>A</strong> to node <strong>B</strong>. Each branch has a resistance of:</p>
+<ul>
+<li><span class="arithmatex">\( R = 3 \, \Omega \)</span></li>
+</ul>
+<p>If there are <span class="arithmatex">\( n \)</span> such resistors in parallel, the total resistance <span class="arithmatex">\( R_{total} \)</span> is calculated using the formula:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{total}} = \sum_{i=1}^{n} \frac{1}{R_i}
+\]</div>
+<p>For example, with two resistors of <span class="arithmatex">\( 3 \, \Omega \)</span> in parallel:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{total}} = \frac{1}{3} + \frac{1}{3} = \frac{2}{3} \quad \Rightarrow \quad R_{total} = \frac{3}{2} = 1.5 \, \Omega
+\]</div>
+<h3 id="key-properties-of-parallel-circuits">Key Properties of Parallel Circuits:</h3>
+<ul>
+<li><strong>Voltage</strong> is the same across all branches.</li>
+<li><strong>Total resistance</strong> decreases with more branches.</li>
+<li><strong>Current</strong> divides among the paths based on resistance values.</li>
+</ul>
 <h3 id="example-3-nested-combination">Example 3: Nested Combination</h3>
 <pre><code class="language-python">G3 = nx.MultiGraph()
 G3.add_edge('A', 'B', resistance=2)
@@ -311,6 +346,29 @@ draw_graph(simplified_G3, "After: Nested Reduced")
 print("Equivalent Resistance (A–D):", equivalent_resistance(simplified_G3, 'A', 'D'), "Ω")
 </code></pre>
 <p><img alt="" src="../Unknown.png"/></p>
+<h2 id="nested-resistor-network-series-parallel">Nested Resistor Network: Series + Parallel</h2>
+<p>This network consists of resistors between nodes:</p>
+<ul>
+<li><span class="arithmatex">\( R_{AB} = 2\, \Omega \)</span></li>
+<li><span class="arithmatex">\( R_{BC} = 4\, \Omega \)</span></li>
+<li><span class="arithmatex">\( R_{CD} = 2\, \Omega \)</span></li>
+</ul>
+<p>Assuming a <strong>series connection</strong>, the total resistance is:</p>
+<div class="arithmatex">\[
+R_{total} = R_{AB} + R_{BC} + R_{CD} = 2 + 4 + 2 = 8 \, \Omega
+\]</div>
+<h3 id="key-series-circuit-properties">Key Series Circuit Properties:</h3>
+<ul>
+<li><strong>Same current</strong> through all resistors</li>
+<li><strong>Total resistance</strong> is the sum</li>
+<li><strong>Voltage divides</strong> among resistors</li>
+</ul>
+<h3 id="if-node-c-had-a-parallel-branch">If Node C had a parallel branch:</h3>
+<p>Suppose another resistor <span class="arithmatex">\( R_{CE} \)</span> (e.g., <span class="arithmatex">\( 4\, \Omega \)</span>) connected to a new node, E. Then C would form a junction, creating a <strong>parallel segment</strong>, and you'd calculate it like:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{parallel}} = \frac{1}{R_{CD}} + \frac{1}{R_{CE}}
+\]</div>
+<p>Then plug that back into the total series path.</p>
 <h2 id="additional-interactive-resources">Additional Interactive Resources</h2>
 <p>These tools allow you to build, explore, and analyze resistor circuits beyond theoretical models:</p>
 <ul>
