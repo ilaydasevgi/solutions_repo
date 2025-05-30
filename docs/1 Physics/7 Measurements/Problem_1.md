@@ -27,6 +27,8 @@ The goal of this experiment is to determine the local gravitational acceleration
 \[
 L = 1.000 \, \text{m}, \quad u_L = \pm 0.005 \, \text{m}
 \]
+
+
 ![](0000.png)
 ---
 
